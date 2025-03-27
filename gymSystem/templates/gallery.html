@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+  Gallery
+{% endblock title %}
+{% block body %}
+
+  <div class="container mt-2">
+
+    <center><h1>Walkers Gallery</h1></center>
+    <div class="row">
+      {% for p in gallery %}
+      <div class="col-md-4">
+
+        <div class="card">
+          <img src="{{p.img.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{p.title}}</h5>
+            <p class="card-text">{{p.details}}</p>
+            <p class="card-text"><small class="text-muted">Last updated {{p.timetag}}</small></p>
+           
+            <a href="{url 'galleryimages' p.id}" class="btn btn-primary">View all</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    
+
+    </div>
+    <br><br>
+
+   
+  
+  
+ 
+{% endblock body %}

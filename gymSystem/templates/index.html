@@ -51,21 +51,30 @@
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="/" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Classes</a></li>
-            <li><a href="team.html">Trainers</a></li>
+            <li><a href="/services">Classes</a></li>
+            <li><a href="/gallery">Our Gallery</a></li>
+            <li><a href="/trainer">Trainers</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
 
-            <li><a href="login.html">Login</a></li>
-            <li><a href="/signup">SignUp</a></li>
+            
+          {% if not request.user.is_authenticated %}
+          <li><a href="/signup">Signin</a></li>
+          <li><a href="{%url 'login'%}">Login</a></li>
+          {% else%}
+          <a class="btn-getstarted" href="index.html#about">Welcome {{user.username}}</a>
+
+          <li><a href="{%url 'logout'%}">Logout</a></li>
+
+          {% endif %} 
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
       </div>
     </header>
-
+   
     <main class="main">
       <!-- Hero Section -->
       <section id="hero" class="hero section dark-background">

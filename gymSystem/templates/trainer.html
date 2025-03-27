@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+  Trainers
+{% endblock title %}
+{% block body %}
+
+  <div class="container mt-2">
+
+    <center><h1>Walkers Trainers</h1></center>
+    <div class="row">
+      {% for p in trainer %}
+      <div class="col-md-4">
+
+        <div class="card">
+          <img src="{{p.image.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Name: {{p.fullname}}</h5>
+            <p class="card-text"> {{p.details}}</p>
+            <p class="card-text">Contact: {{p.mobile}}</p>
+           
+            <a href="">View all</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    
+
+    </div>
+    <br><br>
+
+ 
+{% endblock body %}

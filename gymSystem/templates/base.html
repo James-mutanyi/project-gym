@@ -1,17 +1,17 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Our Classes</title>
+    <title>Welcome - Big-Boyz Gym</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
-    <!-- Favicons -->
     <link href="static/assets/img/favicon.png" rel="icon" />
-    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="static/assets/img/favicon.png" rel="apple-touch-icon" />
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
@@ -19,7 +19,6 @@
       rel="stylesheet"
     />
 
-    <!-- Vendor CSS Files -->
     <link
       href="static/assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
@@ -33,165 +32,67 @@
       href="static/assets/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
-    <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="static/assets/vendor/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
 
-    <link href="https://js.stripe/v3/" />
-    <!-- Main CSS File -->
     <link href="static/assets/css/main.css" rel="stylesheet" />
   </head>
 
-  <body class="services-page">
-    <header
-      id="header"
-      class="header d-flex align-items-center fixed-top bg-black"
-    >
+  <body class="index-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
       >
         <a href="index.html" class="logo d-flex align-items-center">
-          <h1 class="sitename">Big Boyz Gym</h1>
+          <h1 class="sitename">Destiny</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="services.html" class="active">Classes</a></li>
-            <li><a href="team.html">Trainers</a></li>
+            <li><a href="/services">Classes</a></li>
+            <li><a href="/gallery">Our Gallery</a></li>
+            <li><a href="/trainer">Trainers</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
 
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">SignUp</a></li>
+            
+          {% if not request.user.is_authenticated %}
+          <li><a href="/signup">Signin</a></li>
+          <li><a href="{%url 'login'%}">Login</a></li>
+          <li><a href="{/trainerlogin}}">Login</a></li>
+          {% else%}
+          <a class="btn-getstarted" href="index.html#about">Welcome {{user.username}}</a>
+
+          <li><a href="{%url 'logout'%}">Logout</a></li>
+
+          {% endif %} 
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
       </div>
     </header>
-
+   
     <main class="main">
-      <!-- Page Title -->
-      <div class="page-title dark-background">
-        <div class="container position-relative">
-          <h1>Our Classes</h1>
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background">
+    
+        <div class="col-xl-6 col-lg-8">
+            {% block head %}
+              
+            {% endblock head %}
         </div>
-      </div>
-      <!-- End Page Title -->
-
-      <!-- Services Section -->
-      <section id="services" class="services section">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-4">
-            {% for  in  %}
-            <div class="col-md-4 mt-2">
-
-              <div class="card">
-                <img src="{{p.img.url}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{p.title}}</h5>
-                  <p class="card-text">{{p.description}}</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 min ago</small></p>
-                 
-                 
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-            <!-- <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-              <div class="service-item position-relative">
-                <div class="img">
-                  <img
-                    src="static/assets/img/abservice.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details">
-                  <a href="abs.html" class="stretched-link">
-                    <h3>Abs Training</h3>
-                  </a>
-                  <p>
-                    Providing top-notch training to help you achieve your
-                    fitness goals. Our expert trainers are here to guide you
-                    every step of the way.
-                  </p>
-
-                  <button type="submit" class="btn btn-secondary m-2">
-                    View Abs Classes
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-              <div class="service-item position-relative">
-                <div class="img">
-                  <img
-                    src="static/assets/img/fitservice.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details">
-                  <a href="fitness.html" class="stretched-link">
-                    <h3>Fitness Training</h3>
-                  </a>
-                  <p>
-                    Our fitness training programs are designed to enhance your
-                    strength, flexibility, and endurance. Join us to achieve
-                    your fitness goals with personalized guidance.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-              <div class="service-item position-relative">
-                <div class="img">
-                  <img
-                    src="static/assets/img/legservice.jpg"
-                    class="img-fluid"
-                    alt=""
-                  />
-                </div>
-                <div class="details">
-                  <a href="leg.html" class="stretched-link">
-                    <h3>Leg Workout</h3>
-                  </a>
-                  <p>
-                    Our leg workouts are designed to build strength, improve
-                    endurance, and enhance flexibility. Join us for a
-                    comprehensive lower body training experience.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-              <div class="service-item position-relative">
-                <div class="img">
-                  <img src="static/assets/img/upper.jpg" class="img-fluid" alt="" />
-                </div>
-                <div class="details">
-                  <a href="upper.html" class="stretched-link">
-                    <h3>Upper Body Training</h3>
-                  </a>
-                  <p>
-                    Enhance your upper body strength with our specialized
-                    training programs. Our expert trainers will guide you
-                    through effective workouts for optimal results.
-                  </p>
-                </div>
-              </div>
-            </div> -->
-            <!-- End Service Item -->
-          </div>
-        </div>
-      </section>
-      <!-- /Services Section -->
+        </section>
+       
+         <main id="main">
+           
+                {% block body %}
+                  
+                {% endblock body %}
+         </main>
     </main>
 
     <footer id="footer" class="footer dark-background">
@@ -224,7 +125,8 @@
                 <a href="services.html">Services</a>
               </li>
               <li>
-                <i class="bi bi-chevron-right"></i> <a href="team.html">Team</a>
+                <i class="bi bi-chevron-right"></i>
+                <a href="team.html">Trainers</a>
               </li>
             </ul>
           </div>
