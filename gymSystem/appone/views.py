@@ -1,8 +1,9 @@
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import *
-from.forms import *
+from .forms import TrainerLoginForm
+
 
 
 # Create your views here.
@@ -22,9 +23,7 @@ def signup(request):
             messages.info(request, "pasword is not matching")
             return redirect('/signup')
 
-        # if len(username)>10 or len(username)<10:
-        #     messages.info(request, "Phone number must be 10 digits")
-        #     return redirect('/signup')
+  
 
         try:
             if User.objects.get(username= username):

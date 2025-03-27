@@ -83,6 +83,7 @@
               <input
                 type="text"
                 class="form-control"
+
                 id="name"
                 name="username"
                 placeholder="Enter your username"
@@ -90,13 +91,26 @@
               />
             </div>
             <div class="mb-3">
+
               <label for="email" class="form-label">Email</label>
               <input
-                type="text"
+                type="email"
                 class="form-control"
                 id="email"
                 name="email"
-                placeholder="Enter your Email"
+                placeholder="Enter your useremail"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="phoneNo" class="form-label">Phone Number</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="phoneNo"
+                name="phoneNumber"
+                placeholder="Enter your phone number"
                 required
               />
             </div>
@@ -108,19 +122,19 @@
                 class="form-control"
                 id="password1"
                 name="password1"
+                id="password"
+                name="password"
                 placeholder="Enter your password"
                 required
               />
             </div>
             <div class="mb-3">
-              <label for="confirmPassword" class="form-label"
-                >Confirm Password</label
-              >
+              <label for="password2" class="form-label">Confirm Password</label>
               <input
                 type="password"
                 class="form-control"
-                id="confirmPassword"
-                name="password2"
+                id="password2"
+                name="confirmPassword"
                 placeholder="Confirm your password"
                 required
               />
