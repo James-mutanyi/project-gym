@@ -1,420 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>About</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+{%extends "base.html"%} {% block title%} About {% endblock title%} {% block
+content%}
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title dark-background">
+    <div class="container position-relative">
+      <h1>About Big Boyz Gym</h1>
+    </div>
+  </div>
+  <!-- End Page Title -->
 
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-    <link href="assets/css/main.css" rel="stylesheet" />
-  </head>
-
-  <body class="about-page">
-    <header id="header" class="header d-flex align-items-center fixed-top">
-      <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-      >
-        <a href="index.html" class="logo d-flex align-items-center">
-          <h1 class="sitename">Big Boyz Gym</h1>
-        </a>
-
-        <nav id="navmenu" class="navmenu">
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="row gy-4">
+        <div
+          class="col-lg-6 position-relative align-self-start"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <img src="assets/img/upper.jpg" class="img-fluid" alt="" />
+        </div>
+        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+          <h3>We are one of the best gym spot for gym rats in town</h3>
+          <p class="fst-italic">
+            Welcome to Big Boyz Gym, where fitness meets excellence and
+            dedication transforms into results.
+          </p>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="services.html">Classes</a></li>
-            <li><a href="team.html">Trainers</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">SignUp</a></li>
+            <li>
+              <i class="bi bi-check2-all"></i>
+              <span
+                >The best and condusive workout environment is provided.</span
+              >
+            </li>
+            <li>
+              <i class="bi bi-check2-all"></i>
+              <span
+                >We offer a variety of fitness classes to suit all levels.</span
+              >
+            </li>
+            <li>
+              <i class="bi bi-check2-all"></i>
+              <span
+                >We provide top-notch equipment and facilities to ensure you
+                have the best workout experience.</span
+              >
+            </li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </header>
-
-    <main class="main">
-      <!-- Page Title -->
-      <div class="page-title dark-background">
-        <div class="container position-relative">
-          <h1>About Big Boyz Gym</h1>
+          <p>
+            We provide personalized training programs tailored to your fitness
+            goals. Our experienced trainers are here to guide you every step of
+            the way. Join us today and start your fitness journey with Big Boyz
+            Gym.
+          </p>
         </div>
       </div>
-      <!-- End Page Title -->
+    </div>
+  </section>
+  <!-- /About Section -->
 
-      <!-- About Section -->
-      <section id="about" class="about section">
-        <div class="container">
-          <div class="row gy-4">
-            <div
-              class="col-lg-6 position-relative align-self-start"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <img src="assets/img/upper.jpg" class="img-fluid" alt="" />
-            </div>
-            <div
-              class="col-lg-6 content"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <h3>We are one of the best gym spot for gym rats in town</h3>
-              <p class="fst-italic">
-                Welcome to Big Boyz Gym, where fitness meets excellence and
-                dedication transforms into results.
-              </p>
-              <ul>
-                <li>
-                  <i class="bi bi-check2-all"></i>
-                  <span
-                    >The best and condusive workout environment is
-                    provided.</span
-                  >
-                </li>
-                <li>
-                  <i class="bi bi-check2-all"></i>
-                  <span
-                    >We offer a variety of fitness classes to suit all
-                    levels.</span
-                  >
-                </li>
-                <li>
-                  <i class="bi bi-check2-all"></i>
-                  <span
-                    >We provide top-notch equipment and facilities to ensure you
-                    have the best workout experience.</span
-                  >
-                </li>
-              </ul>
+  <!-- Stats Section -->
+  <section id="stats" class="stats section bg-black">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span
+              data-purecounter-start="0"
+              data-purecounter-end="101"
+              data-purecounter-duration="1"
+              class="purecounter"
+            ></span>
+            <p>Clients</p>
+          </div>
+        </div>
+        <!-- End Stats Item -->
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span
+              data-purecounter-start="0"
+              data-purecounter-end="20"
+              data-purecounter-duration="1"
+              class="purecounter"
+            ></span>
+            <p>Trainers</p>
+          </div>
+        </div>
+        <!-- End Stats Item -->
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span
+              data-purecounter-start="0"
+              data-purecounter-end="210"
+              data-purecounter-duration="1"
+              class="purecounter"
+            ></span>
+            <p>Gym Equipments</p>
+          </div>
+        </div>
+        <!-- End Stats Item -->
+
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item text-center w-100 h-100">
+            <span
+              data-purecounter-start="0"
+              data-purecounter-end="32"
+              data-purecounter-duration="1"
+              class="purecounter"
+            ></span>
+            <p>Workers</p>
+          </div>
+        </div>
+        <!-- End Stats Item -->
+      </div>
+    </div>
+  </section>
+  <!-- /Stats Section -->
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2 class="text-uppercase">Customer Testimonials</h2>
+      <p>Our clients love the results they achieve with our programs</p>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            }
+          }
+        </script>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/blog/user.png"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Michael Wanajala</h3>
+              <h4>Dance Careographer</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i>
+              </div>
               <p>
-                We provide personalized training programs tailored to your
-                fitness goals. Our experienced trainers are here to guide you
-                every step of the way. Join us today and start your fitness
-                journey with Big Boyz Gym.
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span
+                  >This is the best place i have ever visited. Ranging from
+                  their next level equipments and talented trainers.</span
+                >
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/blog/user.png"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Mutanyi James</h3>
+              <h4>Gym Member</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span
+                  >The trainers are very professional and the environment is
+                  welcoming. I have seen great improvements in my fitness
+                  journey.</span
+                >
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/blog/user.png"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Edwin Batiya</h3>
+              <h4>Athlete</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span
+                  >Big Boyz Gym has transformed my fitness journey. The trainers
+                  are highly skilled and the equipment is top-notch.</span
+                >
+                <i class="bi bi-quote quote-icon-right"></i>
               </p>
             </div>
           </div>
         </div>
-      </section>
-      <!-- /About Section -->
-
-      <!-- Stats Section -->
-      <section id="stats" class="stats section bg-black">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-4">
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="101"
-                  data-purecounter-duration="1"
-                  class="purecounter"
-                ></span>
-                <p>Clients</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="20"
-                  data-purecounter-duration="1"
-                  class="purecounter"
-                ></span>
-                <p>Trainers</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="210"
-                  data-purecounter-duration="1"
-                  class="purecounter"
-                ></span>
-                <p>Gym Equipments</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="32"
-                  data-purecounter-duration="1"
-                  class="purecounter"
-                ></span>
-                <p>Workers</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-          </div>
-        </div>
-      </section>
-      <!-- /Stats Section -->
-
-      <!-- Testimonials Section -->
-      <section id="testimonials" class="testimonials section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2 class="text-uppercase">Customer Testimonials</h2>
-          <p>Our clients love the results they achieve with our programs</p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper init-swiper">
-            <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                }
-              }
-            </script>
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/blog/user.png"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Michael Wanajala</h3>
-                  <h4>Dance Careographer</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >This is the best place i have ever visited. Ranging from
-                      their next level equipments and talented trainers.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/blog/user.png"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Mutanyi James</h3>
-                  <h4>Gym Member</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >The trainers are very professional and the environment is
-                      welcoming. I have seen great improvements in my fitness
-                      journey.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/blog/user.png"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Edwin Batiya</h3>
-                  <h4>Athlete</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Big Boyz Gym has transformed my fitness journey. The
-                      trainers are highly skilled and the equipment is
-                      top-notch.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section>
-      <!-- /Testimonials Section -->
-    </main>
-
-    <footer id="footer" class="footer dark-background">
-      <div class="container footer-top">
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6 footer-about">
-            <a href="index.html" class="d-flex align-items-center">
-              <span class="sitename">Big Boyz Gym</span>
-            </a>
-            <div class="footer-contact pt-3">
-              <p>Mathare North Area 4</p>
-              <p>Nairobi, Kenya</p>
-              <p class="mt-3">
-                <strong>Phone:</strong> <span>0707608500</span>
-              </p>
-              <p><strong>Email:</strong> <span>bigboyz@gmail.com</span></p>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Special Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="about.html">About us</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="services.html">Services</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i> <a href="team.html">Team</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Classes</h4>
-            <ul>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="abs.html">Abs Training</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="upper.html">Body Building</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="abs.html">Back training</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="upper.html">Leg Workouts</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-12">
-            <h4>Follow Us</h4>
-            <p>
-              Stay connected with us for the latest updates and fitness tips.
-            </p>
-            <div class="social-links d-flex">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
+        <div class="swiper-pagination"></div>
       </div>
+    </div>
+  </section>
+  <!-- /Testimonials Section -->
+</main>
 
-      <div class="container copyright text-center mt-4">
-        <p>
-          © <span>Copyright</span>
-          <strong class="px-1 sitename">Big Boyz</strong>
-          <span>All Rights Reserved</span>
-        </p>
-        <div class="credits">
-          Designed by
-          <a href="https://github.com/James-mutanyi/Big_Boyz-Gym"
-            >James-mutanyi</a
-          >
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
-  </body>
-</html>
+{% endblock %}

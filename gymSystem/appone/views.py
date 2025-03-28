@@ -54,6 +54,10 @@ def services(request):
     context ={"service":service}
     return render(request, "services2.html", context)
 
+def about(request):
+    return render(request, "about.html")
+    
+
 def gallery(request):
     gallery=Gallery.objects.all().order_by('-id')
     context ={"gallery":gallery,}
