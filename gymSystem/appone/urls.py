@@ -20,5 +20,6 @@ urlpatterns = [
     path('book_session/<int:id>',views.book_session, name="book_session"),
     path('galleryimages/<int:id>', views.galleryimages, name='galleryimages'),
     path('trainer_dashboard', views.trainer_dashboard, name='trainer_dashboard'),
+    path('about', views.about, name='about'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

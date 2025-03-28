@@ -52,7 +52,6 @@
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="/" class="active">Home</a></li>
-            <li><a href="/legwork">try leg</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="/workout">Our Classes</a></li>
             <li><a href="/gallery">Our Gallery</a></li>
@@ -61,29 +60,27 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
 
-            
-          {% if not request.user.is_authenticated %}
-          <li><a href="/signup">Signin</a></li>
-          <li><a href="{%url 'login'%}">Login</a></li>
-          {% else%}
-          <a class="btn-getstarted" href="index.html#about">Welcome {{user.username}}</a>
-          <li><a href="/dashboard">Dashboard</a></li>
-          
+            {% if not request.user.is_authenticated %}
+            <li><a href="/signup">Signin</a></li>
+            <li><a href="{%url 'login'%}">Login</a></li>
+            {% else%}
+            <a class="btn-getstarted" href="index.html#about"
+              >Welcome {{user.username}}</a
+            >
+            <li><a href="/dashboard">Dashboard</a></li>
 
-        
-          <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-           <button type="submit">Log Out</button></a>
-           
-          </form>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Log Out</button>
+            </form>
 
-          {% endif %} 
+            {% endif %}
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
       </div>
     </header>
-   
+
     <main class="main">
       <!-- Hero Section -->
       <section id="hero" class="hero section dark-background">
