@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Sessions</title>
+</head>
+<body>
+    <h1>Available Sessions</h1>
+    <ul>
+        {% for session in sessions %}
+            <li>
+                <strong>{{ session.name }}</strong><br>
+                Date: {{ session.date }}<br>
+                Time: {{ session.time }}<br>
+                Trainer: {{ session.trainer }}
+            </li>
+        {% empty %}
+            <li>No sessions available at the moment.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -104,7 +104,6 @@ def workout(request):
 def session(request, id):
     workout=Workout.objects.get(id=id)
     session=Session.objects.filter(workout=workout)
-
     context ={"session":session}
     return render(request, "session.html", context)
 
@@ -153,11 +152,12 @@ def is_trainer(user):
 # To list all the sessions
 @login_required(login_url='/login')
 def session_list(request):
-    session=Session.objects.all().annotate(num_bookings=Count('booking'))
+    session=Session.objects.all().annotate(num_bookings=Count('bookings'))
     context={"session":session}
-    return render(request, 'session.html', context)
+    return render(request, 'sessionlist.html', context)
 
 @login_required(login_url='/login')
+
 def book_session(request, id):
     session =get_object_or_404(Session, id=id)
     #check if the session is already booked
@@ -183,7 +183,7 @@ def book_session(request, id):
            
     else:
         form = BookingForm()
-    return render(request, 'workout.html', {  "session":session})
+    return render(request, 'workout.html', { "form":form, "session":session})
 
 #To list all the bookings in the trainer's dashboard
 @login_required(login_url='/login')
@@ -197,3 +197,11 @@ def trainer_dashboard(request):
 
 def legworkout(request):
     return render(request, 'leg.html')
+def blog(request):
+    return render(request, 'blog.html')
+def blog1(request):
+    return render(request, 'blog1.html')
+def blog2(request):
+    return render(request, 'blog2.html')
+def blog3(request):
+    return render(request, 'blog3.html')
