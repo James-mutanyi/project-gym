@@ -51,7 +51,6 @@ class SubPlan(models.Model):
     def __str__(self):
         return self.title
     
-
 class Trainer(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='trainer_profile')
     full_name=models.CharField(max_length=205)
@@ -95,6 +94,7 @@ class Session(models.Model):
     img= models.ImageField(upload_to="session/")
     capacity = models.IntegerField(default=30)
     
+
 
     def __str__(self):
         return self.name
