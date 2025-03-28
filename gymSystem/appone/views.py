@@ -190,3 +190,6 @@ def trainer_dashboard(request):
     trainer_booking =Booking.objects.filter(session__trainer=trainer).order_by('-booking_date')
     context ={"trainer_session":trainer_session, "trainer_booking":trainer_booking}
     return render(request, 'trainer_session.html', context)
+
+def legworkout(request):
+    return render(request, 'leg.html')

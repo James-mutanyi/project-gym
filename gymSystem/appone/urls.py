@@ -16,6 +16,7 @@ urlpatterns = [
     path('attendance',views.attendance, name="attendance"),
     path('session/<int:id>',views.session, name="session"),
     path('workout',views.workout, name="workout"),
+    path('legwork',views.legworkout, name="legworkout"),
     path('book_session/<int:id>',views.book_session, name="book_session"),
     path('galleryimages/<int:id>', views.galleryimages, name='galleryimages'),
     path('trainer_dashboard', views.trainer_dashboard, name='trainer_dashboard'),
