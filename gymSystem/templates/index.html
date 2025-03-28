@@ -45,7 +45,7 @@
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
       >
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="/" class="logo d-flex align-items-center">
           <h1 class="sitename">Destiny</h1>
         </a>
 
@@ -53,9 +53,10 @@
           <ul>
             <li><a href="/" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="/services">Classes</a></li>
+            <li><a href="/workout">Our Classes</a></li>
             <li><a href="/gallery">Our Gallery</a></li>
             <li><a href="/trainer">Trainers</a></li>
+            <li><a href="/subplan">Subscriptions Plan</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
 
@@ -65,6 +66,9 @@
           <li><a href="{%url 'login'%}">Login</a></li>
           {% else%}
           <a class="btn-getstarted" href="index.html#about">Welcome {{user.username}}</a>
+          <li><a href="/dashboard">Dashboard</a></li>
+          
+
         
           <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
@@ -441,6 +445,7 @@
               <p>Nairobi, Kenya</p>
               <p class="mt-3">
                 <strong>Phone:</strong> <span>0707608500</span>
+                <strong>Phone:</strong> <span>0112956733</span>
               </p>
               <p><strong>Email:</strong> <span>bigboyz@gmail.com</span></p>
             </div>
@@ -456,11 +461,11 @@
               </li>
               <li>
                 <i class="bi bi-chevron-right"></i>
-                <a href="services.html">Services</a>
+                <a href="/services">Services</a>
               </li>
               <li>
                 <i class="bi bi-chevron-right"></i>
-                <a href="team.html">Trainers</a>
+                <a href="/trainer">Trainers</a>
               </li>
             </ul>
           </div>
@@ -470,19 +475,19 @@
             <ul>
               <li>
                 <i class="bi bi-chevron-right"></i>
-                <a href="abs.html">Abs Training</a>
+                <a href="/services">Abs Training</a>
               </li>
               <li>
                 <i class="bi bi-chevron-right"></i>
-                <a href="upper.html">Body Building</a>
+                <a href="/services">Body Building</a>
               </li>
               <li>
                 <i class="bi bi-chevron-right"></i>
-                <a href="abs.html">Back training</a>
+                <a href="/services">Back training</a>
               </li>
               <li>
                 <i class="bi bi-chevron-right"></i>
-                <a href="upper.html">Leg Workouts</a>
+                <a href="/services">Leg Workouts</a>
               </li>
             </ul>
           </div>
@@ -511,7 +516,7 @@
         <div class="credits">
           Designed by
           <a href="https://github.com/James-mutanyi/Big_Boyz-Gym"
-            >James-mutanyi</a
+            >James-mutanyi and Destiny</a
           >
         </div>
       </div>

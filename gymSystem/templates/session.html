@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+  Gallery
+{% endblock title %}
+{% block body %}
+
+  <div class="container mt-2">
+
+    <center><h1>{{workout.title}} Classes</h1></center>
+    <div class="row">
+      {% for s in session %}
+      <div class="col-md-4 mt-2">
+
+        <div class="card">
+          <img src="{{s.img.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{s.name}}.</h5>
+            <p class="card-text">From: {{s.starttime}}</p>
+            <p class="card-text">To:{{s.stoptime}}</p>
+            <p class="card-text">Trainer: {{s.trainer}}</p>
+            <a href="{% url 'book_session' s.id%}"" class="btn btn-primary">Book Session</a>
+           
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    
+
+    </div>
+    <br><br>
+
+   
+  
+  
+ 
+{% endblock body %}

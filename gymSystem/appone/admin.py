@@ -35,4 +35,8 @@ class SessionAdmin(admin.ModelAdmin):
     list_display=('workout', 'trainer', 'image_tag')
 admin.site.register(Session, SessionAdmin)
 
+class BookingAdmin(admin.ModelAdmin):
+    list_display=('user', 'session')
+admin.site.register(Booking, BookingAdmin)
+
 admin.site.register(Attendance)

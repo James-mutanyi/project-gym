@@ -1,6 +1,6 @@
 from django.db import models
 from django. utils.html  import mark_safe
-
+from django.contrib.auth.models import User 
 
 # Create your models here.
 class Services(models.Model):
@@ -53,6 +53,7 @@ class SubPlan(models.Model):
     
 
 class Trainer(models.Model):
+    user=models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='trainer_profile')
     full_name=models.CharField(max_length=205)
     username=models.CharField(max_length=205, null =True)
     psw =models.CharField(max_length=205, default="trainer")
@@ -90,11 +91,22 @@ class Session(models.Model):
     workout=models.ForeignKey(Workout, on_delete=models.CASCADE)
     starttime=models.TimeField()
     endtime=models.TimeField()
-    trainer=models.ForeignKey(Trainer, on_delete=models.CASCADE)
+    trainer=models.ForeignKey(Trainer, on_delete=models.CASCADE, related_name='classes')
     img= models.ImageField(upload_to="session/")
+    capacity = models.IntegerField(default=30)
     
 
     def __str__(self):
         return self.name
     def image_tag(self):
         return mark_safe('<img src="%s" width="80" />'% (self.img.url)) 
+
+class Booking(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    booking_date = models.DateTimeField(auto_now_add=True)
+    session=models.ForeignKey(Session, on_delete=models.CASCADE, related_name='bookings')
+    def __str__(self):
+        return self.user.username + " " + self.session.name
+    # To prevevent user from booking the same session twice
+    class Meta:
+        unique_together = ('user', 'session')
