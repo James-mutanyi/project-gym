@@ -1,36 +1,39 @@
-{% extends "base.html" %}
-{% block title %}
-  Gallery
-{% endblock title %}
-{% block content %}
-
-  <div class="container mt-2">
-
-    <center><h1>{{workout.title}} Classes</h1></center>
-    <div class="row">
-      {% for s in session %}
-      <div class="col-md-4 mt-2">
-
-        <div class="card">
-          <img src="{{s.img.url}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{s.name}}.</h5>
-            <p class="card-text">From: {{s.starttime}}</p>
-            <p class="card-text">To:{{s.stoptime}}</p>
-            <p class="card-text">Trainer: {{s.trainer}}</p>
-            <a href="{% url 'book_session' s.id%}"" class="btn btn-primary">Book Session</a>
-           
-          </div>
+{% extends "base.html" %} {% block title %} Sessions {% endblock title %} {%
+block content %}
+<div class="container mt-2" style="max-width: 960px; margin: 2rem auto">
+  <center>
+    <h1 class="text-primary" style="color: blue">{{workout.title}} Classes</h1>
+  </center>
+  <div class="row">
+    {% for s in session %}
+    <div class="col-md-4 mt-2">
+      <div class="card shadow-sm border-0">
+        <img
+          src="{{s.img.url}}"
+          class="card-img-top rounded"
+          alt="Session Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-dark font-weight-bold">{{s.name}}</h5>
+          <p class="card-text text-muted mb-1">
+            <strong>From:</strong> {{s.starttime}}
+          </p>
+          <p class="card-text text-muted mb-1">
+            <strong>To:</strong> {{s.stoptime}}
+          </p>
+          <p class="card-text text-muted mb-2">
+            <strong>Trainer:</strong> {{s.trainer}}
+          </p>
+          <a
+            href="{% url 'book_session' s.id %}"
+            class="btn btn-primary btn-block"
+            >Book Session</a
+          >
         </div>
       </div>
-      {% endfor %}
-    
-
     </div>
-    <br><br>
-
-   
-  
-  
- 
-{% endblock %}
+    {% endfor %}
+  </div>
+  <br /><br />
+</div>
+{%endblock%}

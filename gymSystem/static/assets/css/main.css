@@ -1989,7 +1989,8 @@ section,
 }
 
 .blog-posts .post-category {
-  font-size: 16px;
+  font-size: 25px;
+  font-weight: 800;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   margin-bottom: 10px;
 }
