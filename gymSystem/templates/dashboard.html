@@ -1,127 +1,189 @@
-{%extends "base.html"%}
-{% block title %}
-  User Dashboard
-{% endblock title %}
-{% block content %}
-<header id="header" class="header d-flex align-items-center fixed-top bg-black" style="background: linear-gradient(to bottom,rgb(28, 23, 32),rgb(11, 47, 83));">
-    <div
-      class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-    >
-      <a href="/" class="logo d-flex align-items-center">
-        <h1 class="sitename">Dashboard</h1>
-      </a>
+{%extends "base.html"%} {% block title %} User Dashboard {% endblock title %}
+{%block content %}
+<header
+  id="header"
+  class="header d-flex align-items-center fixed-top bg-black"
+  style="
+    background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
+  "
+>
+  <div
+    class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+  >
+    <a href="/" class="logo d-flex align-items-center">
+      <h1 class="sitename">Dashboard</h1>
+    </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#profile" class="active">Profile</a></li>
-          <li><a href="#attendance">Atendance</a></li>
-          <li><a href="#classes">Classes</a></li>
-          <li><a href="/gallery">Your Gallery</a></li>
-          <li><a href="#subplan">Subscription Plan</a></li>
-          <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-           <button class=" btn btn-primary "type="submit">Log Out</button></a>
-           
-          </form>
-         
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-    </div>
-  </header>
-<main id="main" style="background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(121,20,41,1) 100%);">
-    <section id="Profile" class="profile-section py-5" style="padding: 1rem 0; margin-bottom: 2rem; margin-top: 2rem; background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(121,20,41,1) 100%);">
-      <div class="container">
-      <div class="card shadow-lg border-0" style="max-width: 540px; margin: auto; padding: 1rem;">
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#profile" class="active">Profile</a></li>
+        <li><a href="#attendance">Atendance</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="/gallery">Your Gallery</a></li>
+        <li><a href="#subplan">Subscription Plan</a></li>
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button class="btn btn-primary" type="submit">Log Out</button>
+        </form>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+  </div>
+</header>
+<main
+  id="main"
+  style="
+    background: radial-gradient(
+      circle,
+      rgba(63, 94, 251, 1) 0%,
+      rgba(121, 20, 41, 1) 100%
+    );
+  "
+>
+  <section
+    id="Profile"
+    class="profile-section py-5"
+    style="
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      background: radial-gradient(
+        circle,
+        rgba(63, 94, 251, 1) 0%,
+        rgba(121, 20, 41, 1) 100%
+      );
+    "
+  >
+    <div class="container">
+      <div
+        class="card shadow-lg border-0"
+        style="max-width: 540px; margin: auto; padding: 1rem"
+      >
         <div class="row g-0">
-        <div class="col-md-4" style="padding: 1rem;">
-          <img src="static/assets/img/blog/user.png" class="img-fluid rounded-start" alt="User Profile Picture" style="margin: auto; display: block;">
-        </div>
-        <div class="col-md-8" style="padding: 1rem;">
-          <div class="card-body">
-          <h5 class="card-title text-muted" style="margin-bottom: 1rem;">Username: <span class="text-primary">{{ user.username }}</span></h5>
-          <h5 class="card-text text-muted" style="margin-bottom: 1rem;">Email: <span class="text-primary">{{ user.email }}</span></h5>
-          <p class="card-text">
-            <a href="{% url 'password_change' %}" class="btn btn-outline-primary btn-sm" style="margin-top: 1rem;">Reset Password</a>
-          </p>
+          <div class="col-md-4" style="padding: 1rem">
+            <img
+              src="static/assets/img/blog/user.png"
+              class="img-fluid rounded-start"
+              alt="User Profile Picture"
+              style="margin: auto; display: block"
+            />
+          </div>
+          <div class="col-md-8" style="padding: 1rem">
+            <div class="card-body">
+              <h5 class="card-title text-muted" style="margin-bottom: 1rem">
+                Username: <span class="text-primary">{{ user.username }}</span>
+              </h5>
+              <h5 class="card-text text-muted" style="margin-bottom: 1rem">
+                Email: <span class="text-primary">{{ user.email }}</span>
+              </h5>
+              <p class="card-text">
+                <a
+                  href="{% url 'password_change' %}"
+                  class="btn btn-outline-primary btn-sm"
+                  style="margin-top: 1rem"
+                  >Reset Password</a
+                >
+              </p>
+            </div>
           </div>
         </div>
-        </div>
       </div>
-      </div>
-    </section>
-    <section id="attendance" class="py-1" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 5rem; background: linear-gradient(to bottom,rgb(28, 23, 32),rgb(11, 47, 83));">
-      <div class="container">
+    </div>
+  </section>
+  <section
+    id="attendance"
+    class="py-1"
+    style="
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 5rem;
+      background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
+    "
+  >
+    <div class="container">
       <div class="text-center mb-4">
         <h5 class="text-white text-3xl p-2 uppercase">Attendance Record</h5>
       </div>
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
-        <thead class="table-primary">
-          <tr>
-          <th>Date</th>
-          <th>Login Time</th>
-          <th>Logout Time</th>
-          <th>Workout</th>
-          <th>Trained By</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for x in attendance %}
-          <tr>
-          <td>{{ x.selectdate }}</td>
-          <td>{{ x.login }}</td>
-          <td>{{ x.logout }}</td>
-          <td>{{ x.selectworkout }}</td>
-          <td>{{ x.trainedby }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
+          <thead class="table-primary">
+            <tr>
+              <th>Date</th>
+              <th>Login Time</th>
+              <th>Logout Time</th>
+              <th>Workout</th>
+              <th>Trained By</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for x in attendance %}
+            <tr>
+              <td>{{ x.selectdate }}</td>
+              <td>{{ x.login }}</td>
+              <td>{{ x.logout }}</td>
+              <td>{{ x.selectworkout }}</td>
+              <td>{{ x.trainedby }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
         </table>
       </div>
       <div class="text-center mt-3 p-2">
         <a href="/attendance" class="btn btn-primary">Update Attendance</a>
       </div>
-      </div>
-    </section>
-    {% for message in messages  %}
-    <div class="alert alert-{{message.tags}} alert-dismissible fade show " role="alert">
-        <strong></strong>{{message}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
     </div>
-      
-    {% endfor %}
-    <section id="classes" class="py-1" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background: linear-gradient(to bottom,rgb(28, 23, 32),rgb(11, 47, 83));">
-      <div class="container">
+  </section>
+  {% for message in messages %}
+  <div
+    class="alert alert-{{message.tags}} alert-dismissible fade show "
+    role="alert"
+  >
+    <strong></strong>{{message}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="close"
+    ></button>
+  </div>
+
+  {% endfor %}
+  <section
+    id="classes"
+    class="py-1"
+    style="
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
+    "
+  >
+    <div class="container">
       <div class="text-center mb-4">
         <h5 class="text-white text-3xl p-2 uppercase">Here are your classes</h5>
       </div>
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
-        <thead class="table-primary">
-          <tr>
-          <th>Session Name</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Workout</th>
-          <th>Trained By</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for s in user_session %}
-          <tr>
-          <td>{{ s.name }}</td>
-          <td>{{ s.starttime }}</td>
-          <td>{{ s.stoptime }}</td>
-          <td>{{ s.workout }}</td>
-          <td>{{ s.trainer }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
+          <thead class="table-primary">
+            <tr>
+              <th>Session Name</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Workout</th>
+              <th>Trained By</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in user_session %}
+            <tr>
+              <td>{{ s.name }}</td>
+              <td>{{ s.starttime }}</td>
+              <td>{{ s.stoptime }}</td>
+              <td>{{ s.workout }}</td>
+              <td>{{ s.trainer }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
         </table>
       </div>
-      </div>
-    </section>
-
+    </div>
+  </section>
 </main>
 {% endblock %}
