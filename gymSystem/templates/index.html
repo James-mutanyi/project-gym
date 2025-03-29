@@ -60,12 +60,22 @@
             <li><a href="/subplan">Membership</a></li>
             <li><a href="/contact">Contact</a></li>
 
-            <li class="dropdown"> <a class="btn-getstarted btn btn-secondary p-2" href="index.html#about"
-              > <img src="static/assets/img/blog/user.png" alt="" style ="width: 25px; height: 25px; margin-right: 5px;"/>
-               {{user.username}}<i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li class="dropdown">
+              <a
+                class="btn-getstarted btn btn-secondary p-2"
+                href="index.html#about"
+              >
+                <img
+                  src="static/assets/img/blog/user.png"
+                  alt=""
+                  style="width: 25px; height: 25px; margin-right: 5px" />
+                {{user.username}}<i
+                  class="bi bi-chevron-down toggle-dropdown"
+                ></i
+              ></a>
               <ul>
                 <!-- <li><a href="{% url 'login' %}">login</a></li> -->
-  
+
                 {% if not request.user.is_authenticated %}
                 <li><a href="/signup">SignUp</a></li>
                 <li><a href="{%url 'login'%}">Login</a></li>
@@ -74,7 +84,12 @@
 
                 <form action="{% url 'logout' %}" method="post">
                   {% csrf_token %}
-                  <button type="submit" class="btn btn-secondary py-1 px-4 justify-center mx-3">Log Out</button>
+                  <button
+                    type="submit"
+                    class="btn btn-secondary py-1 px-4 justify-center mx-3"
+                  >
+                    Log Out
+                  </button>
                 </form>
                 {% endif %}
               </ul>
@@ -312,6 +327,7 @@
               </p>
             </div>
           </div>
+
           <section id="pricing" class="pricing section">
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">

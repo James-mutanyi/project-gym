@@ -41,7 +41,10 @@
   </head>
 
   <body class="index-page">
-    <header id="header" class="header d-flex align-items-center fixed-top bg-black">
+    <header
+      id="header"
+      class="header d-flex align-items-center fixed-top bg-black"
+    >
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
       >
@@ -54,45 +57,60 @@
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/blog">Blog </a></li>
-            <li><a href="/workout">Our Classes</a></li>
-            <li><a href="/gallery">Our Gallery</a></li>
+            <li><a href="/workout">Classes</a></li>
+            <li><a href="/gallery">Gallery</a></li>
             <li><a href="/trainer">Trainers</a></li>
-            <li><a href="/subplan">Subscriptions Plan</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            
-          {% if not request.user.is_authenticated %}
-          <li><a href="/signup">Signin</a></li>
-          <li><a href="{%url 'login'%}">Login</a></li>
-          <li><a href="{/trainerlogin}}">Trainer Login</a></li>
-          {% else%}
-          <a class="btn-getstarted" href="index.html#about">Welcome {{user.username}}</a>
+            <li><a href="/subplan">Membership</a></li>
+            <li><a href="/contact">Contact</a></li>
 
-          <li><a href="{%url 'logout'%}">Logout</a></li>
+            <li class="dropdown">
+              <a
+                class="btn-getstarted btn btn-secondary p-2"
+                href="index.html#about"
+              >
+                <img
+                  src="static/assets/img/blog/user.png"
+                  alt=""
+                  style="width: 25px; height: 25px; margin-right: 5px" />
+                {{user.username}}<i
+                  class="bi bi-chevron-down toggle-dropdown"
+                ></i
+              ></a>
+              <ul>
+                <!-- <li><a href="{% url 'login' %}">login</a></li> -->
 
-          {% endif %} 
+                {% if not request.user.is_authenticated %}
+                <li><a href="/signup">SignUp</a></li>
+                <li><a href="{%url 'login'%}">Login</a></li>
+                {% else%}
+                <li><a href="/dashboard">Dashboard</a></li>
+
+                <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                  <button
+                    type="submit"
+                    class="btn btn-secondary py-1 px-4 justify-center mx-3"
+                  >
+                    Log Out
+                  </button>
+                </form>
+                {% endif %}
+              </ul>
+            </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
       </div>
     </header>
-   
+
     <main class="main">
       <!-- Hero Section -->
 
-    
-        <div class="col-xl-6 col-lg-8">
-            {% block title %}
-              
-            {% endblock title %}
-        </div>
+      <div class="col-xl-6 col-lg-8">
+        {% block title %} {% endblock title %}
+      </div>
 
-       
-         <main id="main">
-           
-                {% block content %}
-                  
-                {% endblock  %}
-         </main>
+      <main id="main">{% block content %} {% endblock %}</main>
     </main>
 
     <footer id="footer" class="footer dark-background">
