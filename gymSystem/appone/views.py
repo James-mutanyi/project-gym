@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render, redirect,get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.db import IntegrityError
 from django.contrib.auth.models import User
 from django.db.models import Count
 from django.contrib import messages
@@ -12,42 +13,46 @@ from .forms import *
 def home(request):
     return render(request, 'index.html')
 
-
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.db import IntegrityError  # Import IntegrityError
 
 def signup(request):
-    if request.method =="POST":
-      
+    if request.method == "POST":
         username = request.POST.get('username')
         email = request.POST.get('email')
         pass1 = request.POST.get('password1')
-        pass2 = request.POST.get('password2')
-        if pass1!= pass2:
-            messages.info(request, "pasword is not matching")
-            return redirect('/signup')
+        pass2 = request.POST.get('confirmPassword')
 
-  
-
-        try:
-            if User.objects.get(username= username):
-                messages.warning(request, "User is already taken!")
-                return redirect('/signup')
-
-        except Exception as identifier:
-            pass
+        if pass1 != pass2:
+            messages.error(request, "Passwords do not match")  # Use error for password mismatch
+            return redirect('/signup/')
 
         try:
-            if User.objects.get(email=email):
-                messages.warning(request, "Email is Taken")
-                return redirect('/signup')
-        except Exception as identifier:
-            pass  
-        myuser=User.objects.create_user( username, email,pass1)
-        myuser = User.objects.create_user(username=username, email=email, password=pass1)
-        myuser.save()
-        messages.success(request, "User is created Sucessfully.") 
-        return redirect('/login')   
+            # Check if username or email already exists using get()
+            if User.objects.filter(username=username).exists():
+                messages.warning(request, "Username is already taken!")
+                return redirect('/signup/')
+            if User.objects.filter(email=email).exists():
+                messages.warning(request, "Email is already taken!")
+                return redirect('/signup/')
+
+            # If we get here, the username and email are unique, so create the user
+            myuser = User.objects.create_user(username, email, pass1)
+            myuser.save()  #redundant
+            messages.success(request, "User created successfully.")
+            return redirect(reverse('login'))
+
+        except IntegrityError:  # Catch IntegrityError specifically
+            messages.error(request, "Error: User could not be created.  Username or email may already exist.")
+            return redirect('/signup/')
+        except Exception as e:
+            messages.error(request, f"An unexpected error occurred: {e}")
+            return redirect('/signup/')
 
     return render(request, 'signup.html')
+
 
 def services(request):
     service= Services.objects.all()
@@ -56,17 +61,18 @@ def services(request):
 
 def about(request):
     return render(request, "about.html")
-    
+
 
 def gallery(request):
-    gallery=Gallery.objects.all().order_by('-id')
-    context ={"gallery":gallery,}
-    return render(request, "gallery.html", context)
+    post=Gallery.objects.all()
+    context ={"post": post}
+    return render (request, "gallery.html", context)
+
+
 
 def galleryimages(request, id):
     gallery=Gallery.objects.get(id=id)
     galleryimg =GalleryImage.objects.filter(gallery=gallery).order_by('-id')
-    # context ={"gallery":gallery, "galleryimg":galleryimg}
     return render(request, "galleryimg.html", {"gallery":gallery, "galleryimg":galleryimg})
 
 
