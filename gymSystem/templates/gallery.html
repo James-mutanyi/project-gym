@@ -6,28 +6,30 @@
 
   <div class="container mt-2">
 
-    <center><h1>Walkers Gallery</h1></center>
+    <center><h1>Walkers Classes</h1></center>
     <div class="row">
-      {% for p in gallery %}
-      <div class="col-md-4">
+      {% for p in post %}
+      <div class="col-md-4 mt-2">
 
         <div class="card">
           <img src="{{p.img.url}}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{p.title}}</h5>
             <p class="card-text">{{p.details}}</p>
-            <p class="card-text"><small class="text-muted">Last updated {{p.timetag}}</small></p>
+            <p class="card-text"><small class="text-muted">Last updated 3 min ago</small></p>
+            <a href="{% url 'galleryimages' p.id %}" class="btn btn-primary">View All</a>
            
-            <a href="{url 'galleryimages' p.id}" class="btn btn-primary">View all</a>
           </div>
         </div>
       </div>
       {% endfor %}
+    
+
     </div>
     <br><br>
 
-    
-  </div>
+   
+  
   
  
 {% endblock %}
