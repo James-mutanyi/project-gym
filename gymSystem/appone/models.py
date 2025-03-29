@@ -92,7 +92,7 @@ class Session(models.Model):
     endtime=models.TimeField()
     trainer=models.ForeignKey(Trainer, on_delete=models.CASCADE, related_name='classes')
     img= models.ImageField(upload_to="session/")
-    capacity = models.IntegerField(default=30)
+    capacity = models.PositiveIntegerField(default=30)
     
 
 

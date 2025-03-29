@@ -1,23 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Sessions</title>
-</head>
-<body>
-    <h1>Available Sessions</h1>
-    <ul>
+{% extends 'base.html' %}  {# You might have a base.html #}
+
+{% block content %}
+  <h2>Available Sessions</h2>
+  {% if sessions %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Session Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Trainer</th>
+          <th>Available Slots</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for session in sessions %}
-            <li>
-                <strong>{{ session.name }}</strong><br>
-                Date: {{ session.date }}<br>
-                Time: {{ session.time }}<br>
-                Trainer: {{ session.trainer }}
-            </li>
-        {% empty %}
-            <li>No sessions available at the moment.</li>
+          <tr>
+            <td>{{ session.name }}</td>
+            <td>{{ session.date }}</td>
+            <td>{{ session.time }}</td>
+            <td>{{ session.trainer }}</td>
+            <td>{{ session.available_slots }}</td>
+            <td>
+              {% if user.is_authenticated %}
+                {% if session.available_slots > 0 %}
+                  <a href="{% url 'book_session' session.id %}" class="btn btn-primary">Book Now</a>
+                {% else %}
+                  <span class="text-muted">Fully Booked</span>
+                {% endif %}
+              {% else %}
+                <a href="{% url 'login' %}" class="btn btn-secondary">Login to Book</a>
+              {% endif %}
+            </td>
+          </tr>
         {% endfor %}
-    </ul>
-</body>
-</html>
+      </tbody>
+    </table>
+  {% else %}
+    <p>No sessions available at the moment.</p>
+  {% endif %}
+{% endblock %}

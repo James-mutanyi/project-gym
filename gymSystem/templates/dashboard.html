@@ -92,36 +92,38 @@
       
     {% endfor %}
     <section id="classes" class="py-1" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background: linear-gradient(to bottom,rgb(28, 23, 32),rgb(11, 47, 83));">
-      <div class="container">
-      <div class="text-center mb-4">
-        <h5 class="text-white text-3xl p-2 uppercase">Here are your classes</h5>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-        <thead class="table-primary">
-          <tr>
+      <h2>Your Booked Sessions</h2>
+  {% if user_bookings %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
           <th>Session Name</th>
           <th>From</th>
           <th>To</th>
-          <th>Workout</th>
-          <th>Trained By</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for s in user_session %}
+          <th>Trainer</th>
+          <th>Booking Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in user_bookings %}
           <tr>
-          <td>{{ s.name }}</td>
-          <td>{{ s.starttime }}</td>
-          <td>{{ s.stoptime }}</td>
-          <td>{{ s.workout }}</td>
-          <td>{{ s.trainer }}</td>
+            <td>{{ booking.session.name }}</td>
+            <td>{{ booking.session.starttime }}</td>
+            <td>{{ booking.session.endtime }}</td>
+            <td>{{ booking.session.trainer }}</td>
+            <td>{{ booking.booking_date }}</td>
           </tr>
-          {% endfor %}
-        </tbody>
-        </table>
-      </div>
-      </div>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>You have not booked any sessions yet.</p>
+  {% endif %}
+
+
+
     </section>
 
 </main>
+
 {% endblock %}

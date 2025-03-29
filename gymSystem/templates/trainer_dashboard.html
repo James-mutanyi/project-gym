@@ -1,0 +1,35 @@
+{% extends 'base.html' %}  {# You might have a base.html #}
+
+{% block content %}
+<section>
+    <h2>Your Trainer Dashboard</h2>
+    {% if trainer_sessions %}
+      {% for session in trainer_sessions %}
+        <h3>{{ session.name }} - {{ session.date }} {{ session.time }}</h3>
+        {% if session.bookings.all %}
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Booking Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for booking in session.bookings.all %}
+                <tr>
+                  <td>{{ booking.user.username }}</td>
+                  <td>{{ booking.booking_date }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>No users have booked this session yet.</p>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <p>You are not assigned to any sessions.</p>
+    {% endif %}
+</section>
+  
+{% endblock %}

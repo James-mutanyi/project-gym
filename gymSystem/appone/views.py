@@ -13,10 +13,7 @@ from .forms import *
 def home(request):
     return render(request, 'index.html')
 
-from django.shortcuts import render, redirect, reverse
-from django.contrib import messages
-from django.contrib.auth.models import User
-from django.db import IntegrityError  # Import IntegrityError
+
 
 def signup(request):
     if request.method == "POST":
@@ -75,7 +72,11 @@ def galleryimages(request, id):
     galleryimg =GalleryImage.objects.filter(gallery=gallery).order_by('-id')
     return render(request, "galleryimg.html", {"gallery":gallery, "galleryimg":galleryimg})
 
+def is_trainer(user):
+    # return user.groups.filter(name='Trainer').exists()
+    return hasattr(user, 'trainer_profile')
 
+@user_passes_test(is_trainer, login_url='/login')
 def trainerlogin(request): 
    
     if request.method=='POST':
@@ -86,7 +87,7 @@ def trainerlogin(request):
             request.session['trainerlogin']=True
             messages.success(request, "login sucess")
             
-            return redirect('/')
+            return redirect('/trainer_dashboard')
         else:
             messages.error(request, "Invalid credentials")
     form =TrainerLoginForm()
@@ -122,9 +123,11 @@ def dashboard(request):
     if not request.user.is_authenticated:
         messages.warning(request,"Please login first.")
         return redirect('/login')
+    user = request.user
     attendance=Attendance.objects.all()
     user_session =request.user.bookings.all()
-    return render(request, 'dashboard.html', {"attendance":attendance, "user_session":user_session})    
+    user_bookings = Booking.objects.filter(user=user).select_related('session', 'session__trainer__user')
+    return render(request, 'dashboard.html', {"attendance":attendance, "user_session":user_session, 'user_bookings': user_bookings})    
 
 def gallery(request):
     post=Gallery.objects.all()
@@ -151,55 +154,46 @@ def attendance(request):
     return render(request, "attendance.html", context)
 
 #To check if the user is a trainer or not
-def is_trainer(user):
-    # return user.groups.filter(name='Trainer').exists()
-    return hasattr(user, 'trainer_profile')
+
 
 # To list all the sessions
 @login_required(login_url='/login')
 def session_list(request):
-    session=Session.objects.all().annotate(num_bookings=Count('bookings'))
-    context={"session":session}
-    return render(request, 'sessionlist.html', context)
+    sessions = Session.objects.all()
+    return render(request, 'session_list.html', {'sessions': sessions})
 
 @login_required(login_url='/login')
-
 def book_session(request, id):
     session =get_object_or_404(Session, id=id)
+    user=request.user
     #check if the session is already booked
     existing_booking = Booking.objects.filter(user=request.user, session=session).first() 
     if existing_booking:
         messages.warning(request, "You have already booked this session.")
-        return redirect('/darshboard')
-    if request.method == 'POST':
-        form =BookingForm(request.POST)
-        if form.is_valid():
-            booking =form.save(commit=False)
-            booking.user =request.user
-            booking.session =session
-            
-            # check if there is still space in the session
-            if session.bookings.count() < session.capacity:
-                booking.save()
-                messages.success(request, "You have booked the session sucessfully.")
-                return redirect('/dashboard')
-            else:
-                messages.error(request, "The session is already full.")
-                return redirect('/session_list')
-           
-    else:
-        form = BookingForm()
-    return render(request, 'workout.html', { "form":form, "session":session})
+        return redirect('/dashboard')
+    if session.capacity <= 0:
+        messages.error(request, "Sorry, this session is fully booked.")
+        return redirect('session_list')  # Redirect to the session list page
+     # Create the booking
+    booking = Booking.objects.create(user=user, session=session)
+    messages.success(request, f"You have successfully booked {session.name}.")
+    return redirect('dashboard') 
+
 
 #To list all the bookings in the trainer's dashboard
 @login_required(login_url='/login')
-@user_passes_test(is_trainer, login_url='/login') #Only trainers can access this view
+# @user_passes_test(is_trainer, login_url='/login') #Only trainers can access this view
 def trainer_dashboard(request):
-    trainer =request.user.trainer_profile
-    trainer_session=trainer.classes.all()
-    trainer_booking =Booking.objects.filter(session__trainer=trainer).order_by('-booking_date')
-    context ={"trainer_session":trainer_session, "trainer_booking":trainer_booking}
-    return render(request, 'trainer_session.html', context)
+    user = request.user
+    try:
+        trainer = Trainer.objects.get(user=user)
+    except Trainer.DoesNotExist:
+        messages.error(request, "You are not a trainer.")
+        return redirect('user_dashboard') 
+    trainer_sessions = Session.objects.filter(trainer=trainer).prefetch_related('bookings__user')
+    return render(request, 'trainer_dashboard.html', {'trainer_sessions': trainer_sessions})
+
+ 
 
 def leg(request):
     return render(request, 'leg.html')
