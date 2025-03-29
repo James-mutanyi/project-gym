@@ -189,7 +189,7 @@ def trainer_dashboard(request):
         trainer = Trainer.objects.get(user=user)
     except Trainer.DoesNotExist:
         messages.error(request, "You are not a trainer.")
-        return redirect('user_dashboard') 
+        return redirect('/') 
     trainer_sessions = Session.objects.filter(trainer=trainer).prefetch_related('bookings__user')
     return render(request, 'trainer_dashboard.html', {'trainer_sessions': trainer_sessions})
 
