@@ -195,7 +195,7 @@ def trainer_dashboard(request):
     context ={"trainer_session":trainer_session, "trainer_booking":trainer_booking}
     return render(request, 'trainer_session.html', context)
 
-def legworkout(request):
+def leg(request):
     return render(request, 'leg.html')
 def blog(request):
     return render(request, 'blog.html')
@@ -207,3 +207,9 @@ def blog3(request):
     return render(request, 'blog3.html')
 def contact (request):
     return render(request, 'contact.html')
+def upper (request):
+    return render(request, 'upper.html')
+def fitness (request):
+    return render(request, 'fitness.html')
+def abs (request):
+    return render(request, 'abs.html')

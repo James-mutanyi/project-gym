@@ -1,337 +1,78 @@
-{%load static%}
+{%extends "base.html"%} {% block title %} Abs Workouts {% endblock title %}
+{%block content %}
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title dark-background">
+    <div class="container position-relative">
+      <h1>Abs Training</h1>
+    </div>
+  </div>
+  <!-- End Page Title -->
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Abs</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+  <!-- Service Details Section -->
+  <section id="service-details" class="service-details section">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-box">
+            <h4>All Classes Offered</h4>
+            <div class="services-list">
+              <a href="/abs" class="active"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Abs Training</span></a
+              >
+              <a href="/upper"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Upper Body Training</span></a
+              >
+              <a href="/fitness"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Fitness Training</span></a
+              >
+              <a href="/leg"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Leg Workouts</span></a
+              >
+            </div>
+          </div>
+        </div>
 
-    <!-- Favicons -->
-    <link href="static/assets/img/favicon.png" rel="icon" />
-    <link
-      href="static/assets/img/apple-touch-icon.png"
-      rel="apple-touch-icon"
-    />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Vendor CSS Files -->
-    <link
-      href="static/assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="static/assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="static/assets/vendor/swiper/swiper-bundle.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- Main CSS File -->
-    <link href="static/assets/css/main.css" rel="stylesheet" />
-  </head>
-
-  <body class="service-details-page">
-    <header id="header" class="header d-flex align-items-center fixed-top">
-      <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-      >
-        <a href="index.html" class="logo d-flex align-items-center">
-          <h1 class="sitename">Big Boyz Gym</h1>
-        </a>
-
-        <nav id="navmenu" class="navmenu">
+        <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <img
+            src="static/assets/img/abservice.jpg"
+            alt=""
+            class="img-fluid services-img"
+          />
+          <h3>
+            We offer comprehensive abs exercises ranging from rollers, leg
+            raises, crunches and more.
+          </h3>
+          <p>The following classes are inclusive in our ab exercises:</p>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html" class="active">Classes</a></li>
-            <li><a href="team.html">Trainers</a></li>
-            <li><a href="blog.html">Blog</a></li>
-
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="team.html">Login</a></li>
-            <li><a href="blog.html">Register</a></li>
+            <li>
+              <i class="bi bi-check-circle"></i>
+              <span>Crunches</span>
+            </li>
+            <li>
+              <i class="bi bi-check-circle"></i>
+              <span>Dead bug</span>
+            </li>
+            <li>
+              <i class="bi bi-check-circle"></i>
+              <span>Reverse crunch</span>
+            </li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-      </div>
-    </header>
-
-    <main class="main">
-      <!-- Page Title -->
-      <div class="page-title dark-background">
-        <div class="container position-relative">
-          <h1>Abs Training</h1>
+          <p>
+            Abs exercises are essential for building core strength and
+            stability. They include a variety of movements such as crunches, leg
+            raises, and planks, which target different abdominal muscles for a
+            well-rounded workout.
+          </p>
         </div>
       </div>
-      <!-- End Page Title -->
+    </div>
+  </section>
+  <!-- /Service Details Section -->
+</main>
 
-      <!-- Service Details Section -->
-      <section id="service-details" class="service-details section">
-        <div class="container">
-          <div class="row gy-5">
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="service-box">
-                <h4>All Classes Offered</h4>
-                <div class="services-list">
-                  <a href="abs.html" class="active"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Abs Training</span></a
-                  >
-                  <a href="upper.html"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Upper Body Training</span></a
-                  >
-                  <a href="fitness.html"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Fitness Training</span></a
-                  >
-                  <a href="leg.html"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Leg Workouts</span></a
-                  >
-                </div>
-              </div>
-
-              <div class="service-box">
-                <h4 class="border-none">Book This Class</h4>
-                <form>
-                  <div class="mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="customerName"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      type="tel"
-                      class="form-control"
-                      id="phoneNumber"
-                      placeholder="Enter your phone number"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="className"
-                      placeholder="Enter class name"
-                      required
-                      readonly
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      type="date"
-                      class="form-control"
-                      id="date"
-                      placeholder="Select Date"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="startTime" class="form-label">Start Time</label>
-                    <input
-                      type="time"
-                      class="form-control"
-                      id="startTime"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="endTime" class="form-label">End Time</label>
-                    <input
-                      type="time"
-                      class="form-control"
-                      id="endTime"
-                      required
-                    />
-                  </div>
-                  <button type="submit" class="btn btn-primary w-100">
-                    Book Class
-                  </button>
-                </form>
-                <script>
-                  document.addEventListener("DOMContentLoaded", function () {
-                    document.getElementById("className").value = document.title;
-                  });
-                </script>
-              </div>
-            </div>
-
-            <div
-              class="col-lg-8 ps-lg-5"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <img
-                src="assets/img/abservice.jpg"
-                alt=""
-                class="img-fluid services-img"
-              />
-              <h3>
-                We offer comprehensive abs exercises ranging from rollers, leg
-                raises, crunches and more.
-              </h3>
-              <p>The following classes are inclusive in our ab exercises:</p>
-              <ul>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span>Crunches</span>
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span>Dead bug</span>
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span>Reverse crunch</span>
-                </li>
-              </ul>
-              <p>
-                Abs exercises are essential for building core strength and
-                stability. They include a variety of movements such as crunches,
-                leg raises, and planks, which target different abdominal muscles
-                for a well-rounded workout.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- /Service Details Section -->
-    </main>
-
-    <footer id="footer" class="footer dark-background">
-      <div class="container footer-top">
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6 footer-about">
-            <a href="index.html" class="d-flex align-items-center">
-              <span class="sitename">Big Boyz Gym</span>
-            </a>
-            <div class="footer-contact pt-3">
-              <p>Mathare North Area 4</p>
-              <p>Nairobi, Kenya</p>
-              <p class="mt-3">
-                <strong>Phone:</strong> <span>0707608500</span>
-              </p>
-              <p><strong>Email:</strong> <span>bigboyz@gmail.com</span></p>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Special Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="about.html">About us</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="services.html">Classes</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="team.html">Trainers</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Classes</h4>
-            <ul>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="abs.html">Abs Training</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="upper.html">Body Building</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="abs.html">Back training</a>
-              </li>
-              <li>
-                <i class="bi bi-chevron-right"></i>
-                <a href="upper.html">Leg Workouts</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-12">
-            <h4>Follow Us</h4>
-            <p>
-              Stay connected with us for the latest updates and fitness tips.
-            </p>
-            <div class="social-links d-flex">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container copyright text-center mt-4">
-        <p>
-          © <span>Copyright</span>
-          <strong class="px-1 sitename">Big Boyz</strong>
-          <span>All Rights Reserved</span>
-        </p>
-        <div class="credits">
-          Designed by
-          <a href="https://github.com/James-mutanyi/Big_Boyz-Gym"
-            >James-mutanyi</a
-          >
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
-  </body>
-</html>
+{% endblock %}

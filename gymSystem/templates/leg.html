@@ -1,161 +1,144 @@
+{% extends "base.html" %} {% block title %} Legs Workout {% endblock title %}
+{%block content %}
 
-{% extends "base.html" %}
-{% block title %}
-  Gallery
-{% endblock title %}
-{% block content %}
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title dark-background">
+    <div class="container position-relative">
+      <h1>Leg Workout</h1>
+    </div>
+  </div>
+  <!-- End Page Title -->
 
-    <main class="main">
-      <!-- Page Title -->
-      <div class="page-title dark-background">
-        <div class="container position-relative">
-          <h1>Leg Workout</h1>
-        </div>
-      </div>
-      <!-- End Page Title -->
-
-      <!-- Service Details Section -->
-      <section id="service-details" class="service-details section">
-        <div class="container">
-          <div class="row gy-5">
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="service-box">
-                <h4>All Classes Offered</h4>
-                <div class="services-list">
-                  <a href="leg.html" class="active"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Leg Workout</span></a
-                  >
-                  <a href="abs.html"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Abs Training</span></a
-                  >
-                  <a href="upper.html"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Upper Body Training</span></a
-                  >
-                  <a href="leg.html"
-                    ><i class="bi bi-arrow-right-circle"></i
-                    ><span>Leg Workouts</span></a
-                  >
-                </div>
-              </div>
-
-              <div class="service-box">
-                <h4 class="border-none">Book This Class</h4>
-                <form>
-                  <div class="mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="customerName"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      type="tel"
-                      class="form-control"
-                      id="phoneNumber"
-                      placeholder="Enter your phone number"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="className"
-                      placeholder="Enter class name"
-                      required
-                      readonly
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      type="date"
-                      class="form-control"
-                      id="date"
-                      placeholder="Select Date"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="startTime" class="form-label">Start Time</label>
-                    <input
-                      type="time"
-                      class="form-control"
-                      id="startTime"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="endTime" class="form-label">End Time</label>
-                    <input
-                      type="time"
-                      class="form-control"
-                      id="endTime"
-                      required
-                    />
-                  </div>
-                  <button type="submit" class="btn btn-primary w-100">
-                    Book Class
-                  </button>
-                </form>
-
-                <script>
-                  document.addEventListener("DOMContentLoaded", function () {
-                    document.getElementById("className").value = document.title;
-                  });
-                </script>
-              </div>
-            </div>
-
-            <div
-              class="col-lg-8 ps-lg-5"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <img
-                src="assets/img/legservice.jpg"
-                alt=""
-                class="img-fluid services-img"
-              />
-              <h3>
-                We offer comprehensive abs exercises ranging from rollers, leg
-                raises, crunches and more.
-              </h3>
-              <p>The following classes are inclusive in our ab exercises:</p>
-              <ul>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span>Crunches</span>
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span>Dead bug</span>
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i>
-                  <span>Reverse crunch</span>
-                </li>
-              </ul>
-              <p>
-                Abs exercises are essential for building core strength and
-                stability. They include a variety of movements such as crunches,
-                leg raises, and planks, which target different abdominal muscles
-                for a well-rounded workout.
-              </p>
+  <!-- Service Details Section -->
+  <section id="service-details" class="service-details section">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-box">
+            <h4>All Classes Offered</h4>
+            <div class="services-list">
+              <a href="/leg" class="active"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Leg Workout</span></a
+              >
+              <a href="/abs"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Abs Training</span></a
+              >
+              <a href="/upper"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Upper Body Training</span></a
+              >
+              <a href="/leg"
+                ><i class="bi bi-arrow-right-circle"></i
+                ><span>Leg Workouts</span></a
+              >
             </div>
           </div>
+
+          <div class="service-box">
+            <h4 class="border-none">Book This Class</h4>
+            <form>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="customerName"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phoneNumber"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="className"
+                  placeholder="Enter class name"
+                  required
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  placeholder="Select Date"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="startTime"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endTime" class="form-label">End Time</label>
+                <input type="time" class="form-control" id="endTime" required />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Book Class
+              </button>
+            </form>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("className").value = document.title;
+              });
+            </script>
+          </div>
         </div>
-      </section>
-      <!-- /Service Details Section -->
-    </main>
 
+        <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <img
+            src="static/assets/img/legservice.jpg"
+            alt=""
+            class="img-fluid services-img"
+          />
+          <h3>
+            We offer comprehensive abs exercises ranging from rollers, leg
+            raises, crunches and more.
+          </h3>
+          <p>The following classes are inclusive in our ab exercises:</p>
+          <ul>
+            <li>
+              <i class="bi bi-check-circle"></i>
+              <span>Crunches</span>
+            </li>
+            <li>
+              <i class="bi bi-check-circle"></i>
+              <span>Dead bug</span>
+            </li>
+            <li>
+              <i class="bi bi-check-circle"></i>
+              <span>Reverse crunch</span>
+            </li>
+          </ul>
+          <p>
+            Abs exercises are essential for building core strength and
+            stability. They include a variety of movements such as crunches, leg
+            raises, and planks, which target different abdominal muscles for a
+            well-rounded workout.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Service Details Section -->
+</main>
 
-    
-    {% endblock %}
-
-   
+{% endblock %}

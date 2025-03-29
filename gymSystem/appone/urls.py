@@ -16,7 +16,7 @@ urlpatterns = [
     path('attendance',views.attendance, name="attendance"),
     path('session/<int:id>',views.session, name="session"),
     path('workout',views.workout, name="workout"),
-    path('legwork',views.legworkout, name="legworkout"),
+    path('leg',views.leg, name="leg"),
     path('book_session/<int:id>',views.book_session, name="book_session"),
     path('galleryimages/<int:id>', views.galleryimages, name='galleryimages'),
     path('trainer_dashboard', views.trainer_dashboard, name='trainer_dashboard'),
@@ -27,5 +27,8 @@ urlpatterns = [
     path('blog2', views.blog2, name='blog2'),
     path('blog3', views.blog3, name='blog3'),
     path('contact', views.contact, name='contact'),
+    path('upper', views.upper, name='upper'),
+    path('fitness', views.fitness, name='fitness'),
+    path('abs', views.abs, name='abs'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
