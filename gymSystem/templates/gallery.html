@@ -1,35 +1,33 @@
-{% extends "base.html" %}
-{% block title %}
-  Gallery
-{% endblock title %}
-{% block content %}
+{% extends "base.html" %} {% block title %} Our Gallery {% endblock title %}
+{%block content %}
 
-  <div class="container mt-2">
-
-    <center><h1>Walkers Classes</h1></center>
-    <div class="row">
+<section id="blog-posts" class="blog-posts section mt-4">
+  <h1
+    class="text-center mb-4 section-heading border-bottom pb-2 font-weight-bold"
+  >
+    View Our Gallery
+  </h1>
+  <div class="container">
+    <div class="row gy-4">
       {% for p in post %}
-      <div class="col-md-4 mt-2">
-
-        <div class="card">
-          <img src="{{p.img.url}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{p.title}}</h5>
-            <p class="card-text">{{p.details}}</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 min ago</small></p>
-            <a href="{% url 'galleryimages' p.id %}" class="btn btn-primary">View All</a>
-           
+      <div class="col-lg-4 col-md-6">
+        <article>
+          <div class="post-img">
+            <img src="{{p.img.url}}" alt="" class="img-fluid" alt="" />
           </div>
-        </div>
+          <h5 class="post-category">{{p.title}}</h5>
+          <p class="card-text">{{p.details}}</p>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 min ago</small>
+          </p>
+          <a href="{% url 'galleryimages' p.id %}" class="btn btn-primary"
+            >View All</a
+          >
+        </article>
       </div>
       {% endfor %}
-    
-
     </div>
-    <br><br>
+  </div>
+</section>
 
-   
-  
-  
- 
 {% endblock %}
