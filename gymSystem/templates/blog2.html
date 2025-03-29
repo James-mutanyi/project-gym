@@ -1,240 +1,231 @@
-{% extends "base.html" %}
-{% block title %}
-  Karen Fitness Competition
-{% endblock title %}
-{% block content %}    
-    <main class="main">
-      <!-- Page Title -->
-      <div class="page-title dark-background">
-        <div class="container position-relative">
-          <h1>Karen Fitness Competition</h1>
-        </div>
-      </div>
-      <!-- End Page Title -->
+{% extends "base.html" %} {% block title %} Karen Fitness {%endblock title %}
+{%block content %}
+<main class="main">
+  <!-- Page Title -->
+  <div class="page-title dark-background">
+    <div class="container position-relative">
+      <h1>Karen Fitness Competition</h1>
+    </div>
+  </div>
+  <!-- End Page Title -->
 
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <!-- Blog Details Section -->
-            <section id="blog-details" class="blog-details section">
-              <div class="container">
-                <article class="article">
-                  <div class="post-img">
-                    <img
-                      src="assets/img/fitservice.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-
-                  <h2 class="title">
-                    The Karen Fitness Competition was a remarkable event that
-                    brought together fitness.
-                  </h2>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
-                        <a href="/blog2">James Mutanyi</a>
-                      </li>
-                      <li class="d-flex align-items-center">
-                        <i class="bi bi-clock"></i>
-                        <a href="/blog2"
-                          ><time datetime="2020-01-01">March 20, 2025</time></a
-                        >
-                      </li>
-                      <li class="d-flex align-items-center">
-                        <i class="bi bi-chat-dots"></i>
-                        <a href="/blog2" id="dynamic-comments-count"
-                          >0 Comments</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- End meta top -->
-
-                  <div class="content">
-                    <blockquote>
-                      <p>
-                        The Karen Fitness Competition was a thrilling event that
-                        showcased the best in fitness and wellness. Attendees
-                        participated in high-energy fitness challenges, attended
-                        insightful workshops, and listened to motivational talks
-                        from top fitness experts. The event also provided an
-                        opportunity to explore the latest fitness equipment and
-                        trends.
-                      </p>
-                    </blockquote>
-
-                    <h3>Highlights of the Karen Fitness Competition</h3>
-                    <p>
-                      The Karen Fitness Competition featured several exciting
-                      highlights including:
-                    </p>
-                    <ul>
-                      <li>Motivational talks by top fitness experts.</li>
-                      <li>
-                        Opportunities to try out the latest fitness equipment.
-                      </li>
-                      <li>
-                        High-energy fitness challenges with attractive prizes.
-                      </li>
-                      <li>
-                        Networking opportunities with fellow fitness enthusiasts
-                        and professionals.
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- End post content -->
-
-                  <div class="meta-bottom">
-                    <i class="bi bi-folder"></i>
-                    <ul class="cats">
-                      <li><a href="#">Fitness</a></li>
-                    </ul>
-
-                    <i class="bi bi-tags"></i>
-                    <ul class="tags">
-                      <li><a href="#">Health</a></li>
-                      <li><a href="#">Diet</a></li>
-                      <li><a href="#">Discipline</a></li>
-                    </ul>
-                  </div>
-                  <!-- End meta bottom -->
-                </article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <!-- Blog Details Section -->
+        <section id="blog-details" class="blog-details section">
+          <div class="container">
+            <article class="article">
+              <div class="post-img">
+                <img
+                  src="static/assets/img/fitservice.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
               </div>
-            </section>
-            <!-- /Blog Details Section -->
 
-            <!-- Blog Comments Section -->
+              <h2 class="title">
+                The Karen Fitness Competition was a remarkable event that
+                brought together fitness.
+              </h2>
 
-            <!-- Accorddin Comment -->
-            <section id="blog-comments" class="blog-comments section">
-              <div class="container">
-                <h4
-                  class="comments-count"
-                  id="comments-count"
-                  style="cursor: pointer"
-                >
-                  Comments
-                </h4>
-
-                <!-- Container for comments -->
-                <div id="comments-list" style="display: none">
-                  <!-- Comments will be dynamically inserted here -->
-                </div>
-
-                <!-- Button to clear all comments -->
-                <button
-                  type="button"
-                  id="clear-comments-btn"
-                  class="btn btn-primary rounded p-2"
-                  style="display: none"
-                >
-                  <i class="bi bi-trash"></i>
-                  Delete Comments
-                </button>
+              <div class="meta-top">
+                <ul>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-person"></i>
+                    <a href="/blog2">James Mutanyi</a>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-clock"></i>
+                    <a href="/blog2"
+                      ><time datetime="2020-01-01">March 20, 2025</time></a
+                    >
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-chat-dots"></i>
+                    <a href="/blog2" id="dynamic-comments-count">0 Comments</a>
+                  </li>
+                </ul>
               </div>
-            </section>
+              <!-- End meta top -->
 
-            <script>
-              document.addEventListener("DOMContentLoaded", function () {
-                updateCommentCount();
-                displayComments();
+              <div class="content">
+                <blockquote>
+                  <p>
+                    The Karen Fitness Competition was a thrilling event that
+                    showcased the best in fitness and wellness. Attendees
+                    participated in high-energy fitness challenges, attended
+                    insightful workshops, and listened to motivational talks
+                    from top fitness experts. The event also provided an
+                    opportunity to explore the latest fitness equipment and
+                    trends.
+                  </p>
+                </blockquote>
 
-                const form = document.getElementById("comment-form");
-                form.addEventListener("submit", function (event) {
-                  event.preventDefault();
+                <h3>Highlights of the Karen Fitness Competition</h3>
+                <p>
+                  The Karen Fitness Competition featured several exciting
+                  highlights including:
+                </p>
+                <ul>
+                  <li>Motivational talks by top fitness experts.</li>
+                  <li>
+                    Opportunities to try out the latest fitness equipment.
+                  </li>
+                  <li>
+                    High-energy fitness challenges with attractive prizes.
+                  </li>
+                  <li>
+                    Networking opportunities with fellow fitness enthusiasts and
+                    professionals.
+                  </li>
+                </ul>
+              </div>
+              <!-- End post content -->
 
-                  const name = document.getElementById("name").value;
-                  const commentText = document.getElementById("comment").value;
-                  const now = new Date();
-                  const formattedDate = now.toLocaleDateString();
-                  const formattedTime = now.toLocaleTimeString();
-                  const fullDateTime = `${formattedDate} at ${formattedTime}`;
+              <div class="meta-bottom">
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                  <li><a href="#">Fitness</a></li>
+                </ul>
 
-                  const newComment = {
-                    name: name,
-                    comment: commentText,
-                    dateTime: fullDateTime,
-                  };
+                <i class="bi bi-tags"></i>
+                <ul class="tags">
+                  <li><a href="#">Health</a></li>
+                  <li><a href="#">Diet</a></li>
+                  <li><a href="#">Discipline</a></li>
+                </ul>
+              </div>
+              <!-- End meta bottom -->
+            </article>
+          </div>
+        </section>
+        <!-- /Blog Details Section -->
 
-                  let comments =
-                    JSON.parse(localStorage.getItem("comments")) || [];
-                  comments.push(newComment);
-                  localStorage.setItem("comments", JSON.stringify(comments));
+        <!-- Blog Comments Section -->
 
-                  // Reload the page to display the new comment and update the comment count
-                  location.reload();
-                });
+        <!-- Accorddin Comment -->
+        <section id="blog-comments" class="blog-comments section">
+          <div class="container">
+            <h4
+              class="comments-count"
+              id="comments-count"
+              style="cursor: pointer"
+            >
+              Comments
+            </h4>
 
-                // Toggle comments visibility when the title is clicked
-                const commentsTitle = document.querySelector(".comments-count");
-                commentsTitle.style.cursor = "pointer";
-                commentsTitle.addEventListener("click", function () {
-                  const commentsList = document.getElementById("comments-list");
-                  const deleteButton =
-                    document.getElementById("delete-comments");
-                  if (
-                    commentsList.style.display === "none" ||
-                    commentsList.style.display === ""
-                  ) {
-                    commentsList.style.display = "block";
-                    if (
-                      deleteButton &&
-                      JSON.parse(localStorage.getItem("comments")).length > 0
-                    ) {
-                      deleteButton.style.display = "block";
-                    }
-                  } else {
-                    commentsList.style.display = "none";
-                    if (deleteButton) deleteButton.style.display = "none";
-                  }
-                });
-              });
+            <!-- Container for comments -->
+            <div id="comments-list" style="display: none">
+              <!-- Comments will be dynamically inserted here -->
+            </div>
 
-              function updateCommentCount() {
-                const comments =
-                  JSON.parse(localStorage.getItem("comments")) || [];
-                const commentCountElement = document.getElementById(
-                  "dynamic-comments-count"
-                );
-                commentCountElement.textContent = `${comments.length} Comments`;
+            <!-- Button to clear all comments -->
+            <button
+              type="button"
+              id="clear-comments-btn"
+              class="btn btn-primary rounded p-2"
+              style="display: none"
+            >
+              <i class="bi bi-trash"></i>
+              Delete Comments
+            </button>
+          </div>
+        </section>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            updateCommentCount();
+            displayComments();
+
+            const form = document.getElementById("comment-form");
+            form.addEventListener("submit", function (event) {
+              event.preventDefault();
+
+              const name = document.getElementById("name").value;
+              const commentText = document.getElementById("comment").value;
+              const now = new Date();
+              const formattedDate = now.toLocaleDateString();
+              const formattedTime = now.toLocaleTimeString();
+              const fullDateTime = `${formattedDate} at ${formattedTime}`;
+
+              const newComment = {
+                name: name,
+                comment: commentText,
+                dateTime: fullDateTime,
+              };
+
+              let comments = JSON.parse(localStorage.getItem("comments")) || [];
+              comments.push(newComment);
+              localStorage.setItem("comments", JSON.stringify(comments));
+
+              // Reload the page to display the new comment and update the comment count
+              location.reload();
+            });
+
+            // Toggle comments visibility when the title is clicked
+            const commentsTitle = document.querySelector(".comments-count");
+            commentsTitle.style.cursor = "pointer";
+            commentsTitle.addEventListener("click", function () {
+              const commentsList = document.getElementById("comments-list");
+              const deleteButton = document.getElementById("delete-comments");
+              if (
+                commentsList.style.display === "none" ||
+                commentsList.style.display === ""
+              ) {
+                commentsList.style.display = "block";
+                if (
+                  deleteButton &&
+                  JSON.parse(localStorage.getItem("comments")).length > 0
+                ) {
+                  deleteButton.style.display = "block";
+                }
+              } else {
+                commentsList.style.display = "none";
+                if (deleteButton) deleteButton.style.display = "none";
               }
+            });
+          });
 
-              function displayComments() {
-                const comments =
-                  JSON.parse(localStorage.getItem("comments")) || [];
-                const commentsListElement =
-                  document.getElementById("comments-list");
-                commentsListElement.innerHTML = ""; // Clear existing comments
-                commentsListElement.style.display = "none"; // Initially hide comments
+          function updateCommentCount() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentCountElement = document.getElementById(
+              "dynamic-comments-count"
+            );
+            commentCountElement.textContent = `${comments.length} Comments`;
+          }
 
-                const blogCommentsSection =
-                  document.querySelector(".blog-comments");
-                let deleteButton = document.getElementById("delete-comments");
-                if (!deleteButton) {
-                  deleteButton = document.createElement("button");
-                  deleteButton.id = "delete-comments";
-                  deleteButton.classList.add("btn", "btn-danger");
-                  deleteButton.textContent = "Delete Comments";
-                  deleteButton.style.display = "none"; // Initially hidden
-                  deleteButton.addEventListener("click", function () {
-                    localStorage.removeItem("comments");
-                    location.reload();
-                  });
-                  blogCommentsSection.appendChild(deleteButton);
-                }
+          function displayComments() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentsListElement =
+              document.getElementById("comments-list");
+            commentsListElement.innerHTML = ""; // Clear existing comments
+            commentsListElement.style.display = "none"; // Initially hide comments
 
-                if (comments.length > 0) {
-                  deleteButton.style.display = "none"; // Ensure it's hidden initially
-                }
+            const blogCommentsSection =
+              document.querySelector(".blog-comments");
+            let deleteButton = document.getElementById("delete-comments");
+            if (!deleteButton) {
+              deleteButton = document.createElement("button");
+              deleteButton.id = "delete-comments";
+              deleteButton.classList.add("btn", "btn-danger");
+              deleteButton.textContent = "Delete Comments";
+              deleteButton.style.display = "none"; // Initially hidden
+              deleteButton.addEventListener("click", function () {
+                localStorage.removeItem("comments");
+                location.reload();
+              });
+              blogCommentsSection.appendChild(deleteButton);
+            }
 
-                comments.forEach((comment, index) => {
-                  const commentElement = document.createElement("div");
-                  commentElement.classList.add("comment");
-                  commentElement.innerHTML = `
+            if (comments.length > 0) {
+              deleteButton.style.display = "none"; // Ensure it's hidden initially
+            }
+
+            comments.forEach((comment, index) => {
+              const commentElement = document.createElement("div");
+              commentElement.classList.add("comment");
+              commentElement.innerHTML = `
       <div class="d-flex">
         <div class="comment-img">
           <img src="assets/img/blog/user.png" alt="" />
@@ -247,118 +238,110 @@
         </div>
       </div>
     `;
-                  commentsListElement.appendChild(commentElement);
-                });
+              commentsListElement.appendChild(commentElement);
+            });
 
-                document
-                  .querySelectorAll(".delete-comment")
-                  .forEach((button) => {
-                    button.addEventListener("click", function () {
-                      const index = this.getAttribute("data-index");
-                      let comments =
-                        JSON.parse(localStorage.getItem("comments")) || [];
-                      comments.splice(index, 1);
-                      localStorage.setItem(
-                        "comments",
-                        JSON.stringify(comments)
-                      );
-                      location.reload();
-                    });
-                  });
-              }
-            </script>
-
-            <!-- Comment Form Section -->
-            <section id="comment-form" class="comment-form section">
-              <div class="container">
-                <form id="comment-form">
-                  <h4>Post A Comment</h4>
-                  <p>Your comment will be posted as the newest one</p>
-                  <div class="row">
-                    <div class="col form-group">
-                      <input
-                        name="name"
-                        id="name"
-                        type="text"
-                        class="form-control"
-                        placeholder="Your Name*"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col form-group">
-                      <textarea
-                        name="comment"
-                        id="comment"
-                        class="form-control"
-                        placeholder="Your Comment*"
-                        required
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">
-                      Post Comment
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </section>
-
-            <!-- JavaScript to handle comment submission and display -->
-            <script>
-              document.addEventListener("DOMContentLoaded", function () {
-                updateCommentCount();
-                displayComments();
-
-                const form = document.getElementById("comment-form");
-                form.addEventListener("submit", function (event) {
-                  event.preventDefault();
-
-                  const name = document.getElementById("name").value;
-                  const commentText = document.getElementById("comment").value;
-                  const now = new Date();
-                  const formattedDate = now.toLocaleDateString();
-                  const formattedTime = now.toLocaleTimeString();
-                  const fullDateTime = `${formattedDate} at ${formattedTime}`;
-
-                  const newComment = {
-                    name: name,
-                    comment: commentText,
-                    dateTime: fullDateTime,
-                  };
-
-                  let comments =
-                    JSON.parse(localStorage.getItem("comments")) || [];
-                  comments.push(newComment);
-                  localStorage.setItem("comments", JSON.stringify(comments));
-
-                  // Reload the page to display the new comment and update the comment count
-                  location.reload();
-                });
+            document.querySelectorAll(".delete-comment").forEach((button) => {
+              button.addEventListener("click", function () {
+                const index = this.getAttribute("data-index");
+                let comments =
+                  JSON.parse(localStorage.getItem("comments")) || [];
+                comments.splice(index, 1);
+                localStorage.setItem("comments", JSON.stringify(comments));
+                location.reload();
               });
+            });
+          }
+        </script>
 
-              function updateCommentCount() {
-                const comments =
-                  JSON.parse(localStorage.getItem("comments")) || [];
-                const commentCountElement = document.getElementById(
-                  "dynamic-comments-count"
-                );
-                commentCountElement.textContent = `${comments.length} Comments`;
-              }
+        <!-- Comment Form Section -->
+        <section id="comment-form" class="comment-form section">
+          <div class="container">
+            <form id="comment-form">
+              <h4>Post A Comment</h4>
+              <p>Your comment will be posted as the newest one</p>
+              <div class="row">
+                <div class="col form-group">
+                  <input
+                    name="name"
+                    id="name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name*"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col form-group">
+                  <textarea
+                    name="comment"
+                    id="comment"
+                    class="form-control"
+                    placeholder="Your Comment*"
+                    required
+                  ></textarea>
+                </div>
+              </div>
 
-              function displayComments() {
-                const comments =
-                  JSON.parse(localStorage.getItem("comments")) || [];
-                const commentsListElement =
-                  document.getElementById("comments-list");
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">
+                  Post Comment
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
 
-                comments.forEach((comment, index) => {
-                  const commentElement = document.createElement("div");
-                  commentElement.classList.add("comment");
-                  commentElement.innerHTML = `
+        <!-- JavaScript to handle comment submission and display -->
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            updateCommentCount();
+            displayComments();
+
+            const form = document.getElementById("comment-form");
+            form.addEventListener("submit", function (event) {
+              event.preventDefault();
+
+              const name = document.getElementById("name").value;
+              const commentText = document.getElementById("comment").value;
+              const now = new Date();
+              const formattedDate = now.toLocaleDateString();
+              const formattedTime = now.toLocaleTimeString();
+              const fullDateTime = `${formattedDate} at ${formattedTime}`;
+
+              const newComment = {
+                name: name,
+                comment: commentText,
+                dateTime: fullDateTime,
+              };
+
+              let comments = JSON.parse(localStorage.getItem("comments")) || [];
+              comments.push(newComment);
+              localStorage.setItem("comments", JSON.stringify(comments));
+
+              // Reload the page to display the new comment and update the comment count
+              location.reload();
+            });
+          });
+
+          function updateCommentCount() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentCountElement = document.getElementById(
+              "dynamic-comments-count"
+            );
+            commentCountElement.textContent = `${comments.length} Comments`;
+          }
+
+          function displayComments() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentsListElement =
+              document.getElementById("comments-list");
+
+            comments.forEach((comment, index) => {
+              const commentElement = document.createElement("div");
+              commentElement.classList.add("comment");
+              commentElement.innerHTML = `
             <div class="d-flex">
               <div class="comment-img">
                 <img src="assets/img/blog/user.png" alt="" />
@@ -370,87 +353,87 @@
               </div>
             </div>
           `;
-                  commentsListElement.appendChild(commentElement);
-                });
-              }
-            </script>
-            <!-- /Comment Form Section -->
+              commentsListElement.appendChild(commentElement);
+            });
+          }
+        </script>
+        <!-- /Comment Form Section -->
+      </div>
+
+      <div class="col-lg-4 sidebar">
+        <div class="widgets-container">
+          <!-- Blog Author Widget -->
+          <div class="blog-author-widget widget-item">
+            <div class="d-flex flex-column align-items-center">
+              <img
+                src="static/assets/img/blog/user.png"
+                class="rounded-circle flex-shrink-0"
+                alt=""
+              />
+              <h4>James Mutanyi</h4>
+
+              <p>
+                The Karen Fitness Competition was a thrilling event that
+                showcased the best in fitness and wellness. Attendees
+                participated in high-energy fitness challenges, attended
+                insightful workshops, and listened to motivational talks from
+                top fitness experts.
+              </p>
+            </div>
           </div>
+          <!--/Blog Author Widget -->
 
-          <div class="col-lg-4 sidebar">
-            <div class="widgets-container">
-              <!-- Blog Author Widget -->
-              <div class="blog-author-widget widget-item">
-                <div class="d-flex flex-column align-items-center">
-                  <img
-                    src="static/assets/img/blog/user.png"
-                    class="rounded-circle flex-shrink-0"
-                    alt=""
-                  />
-                  <h4>James Mutanyi</h4>
+          <!-- Recent Posts Widget -->
+          <div class="recent-posts-widget widget-item">
+            <h3 class="widget-title">Recent Posts</h3>
 
-                  <p>
-                    The Karen Fitness Competition was a thrilling event that
-                    showcased the best in fitness and wellness. Attendees
-                    participated in high-energy fitness challenges, attended
-                    insightful workshops, and listened to motivational talks
-                    from top fitness experts.
-                  </p>
-                </div>
+            <div class="post-item">
+              <img
+                src="static/assets/img/fitservice.jpg"
+                alt=""
+                class="flex-shrink-0"
+              />
+              <div>
+                <h4>
+                  <a href="/blog2">Karen Fitness Competition</a>
+                </h4>
+                <time datetime="2020-01-01">March 20, 2025</time>
               </div>
-              <!--/Blog Author Widget -->
+            </div>
+            <!-- End recent post item-->
 
-              <!-- Recent Posts Widget -->
-              <div class="recent-posts-widget widget-item">
-                <h3 class="widget-title">Recent Posts</h3>
+            <div class="post-item">
+              <img
+                src="static/assets/img/upper.jpg"
+                alt=""
+                class="flex-shrink-0"
+              />
+              <div>
+                <h4>
+                  <a href="/blog1">Kasarani Gym Exhibition</a>
+                </h4>
+                <time datetime="2020-01-01">Jan 1, 2020</time>
+              </div>
+            </div>
+            <!-- End recent post item-->
 
-                <div class="post-item">
-                  <img
-                    src="static/assets/img/fitservice.jpg"
-                    alt=""
-                    class="flex-shrink-0"
-                  />
-                  <div>
-                    <h4>
-                      <a href="/blog2">Karen Fitness Competition</a>
-                    </h4>
-                    <time datetime="2020-01-01">March 20, 2025</time>
-                  </div>
-                </div>
-                <!-- End recent post item-->
-
-                <div class="post-item">
-                  <img
-                    src="static/assets/img/upper.jpg"
-                    alt=""
-                    class="flex-shrink-0"
-                  />
-                  <div>
-                    <h4>
-                      <a href="/blog1">Kasarani Gym Exhibition</a>
-                    </h4>
-                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                  </div>
-                </div>
-                <!-- End recent post item-->
-
-                <div class="post-item">
-                  <img
-                    src="static/assets/img/blog/body.jpg"
-                    alt=""
-                    class="flex-shrink-0"
-                  />
-                  <div>
-                    <h4>
-                      <a href="/blog3">Kitengela Body Building</a>
-                    </h4>
-                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                  </div>
-                </div>
+            <div class="post-item">
+              <img
+                src="static/assets/img/blog/body.jpg"
+                alt=""
+                class="flex-shrink-0"
+              />
+              <div>
+                <h4>
+                  <a href="/blog3">Kitengela Body Building</a>
+                </h4>
+                <time datetime="2020-01-01">Jan 1, 2020</time>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </div>
+</main>
 {% endblock %}
