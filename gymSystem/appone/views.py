@@ -143,11 +143,12 @@ def attendance(request):
     trainer =Trainer.objects.all()
     context={"trainer":trainer}
     if request.method =='POST':
+        user =request.user
         login =request.POST.get('login')
         logout =request.POST.get('logout')
         workout =request.POST.get('workout')
         trainer =request.POST.get('domain')
-        user =request.user
+       
 
         myquery=Attendance( user =user,login=login, logout=logout, selectworkout=workout, trainedby=trainer)
         myquery.save()
