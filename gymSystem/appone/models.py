@@ -67,13 +67,14 @@ class Trainer(models.Model):
         return mark_safe('<img src="%s" width="80" />'% (self.image.url)) 
     
 class Attendance(models.Model):
+     user=models.ForeignKey(User, on_delete=models.CASCADE, related_name='attendance', null=True)
      selectdate= models.DateTimeField(auto_now_add=True)
      login =models.CharField(max_length=200)
      logout =models.CharField(max_length=200)
      selectworkout =models.CharField(max_length=200)
      trainedby =models.CharField(max_length=200)
      def __str__(self):
-         return self.id
+         return self.selectworkout
      
 class Workout(models.Model):
     title=models.CharField(max_length=200)

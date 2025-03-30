@@ -78,9 +78,15 @@
                 <!-- <li><a href="{% url 'login' %}">login</a></li> -->
 
                 {% if not request.user.is_authenticated %}
+                {% if request.session.trainerlogin %}
+                <li><a href="/trainerlogout">Trainer Logout</a></li>
+                {% else %}
+                  
+                <li><a href="/trainerlogin">Trainer Login</a></li>
                 <li><a href="/signup">SignUp</a></li>
                 <li><a href="{%url 'login'%}">Login</a></li>
-                <li><a href="/trainerlogin">Trainer Login</a></li>
+                {% endif %}
+            
                 {% else%}
                 <li><a href="/dashboard">Dashboard</a></li>
 

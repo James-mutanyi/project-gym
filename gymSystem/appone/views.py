@@ -76,7 +76,7 @@ def is_trainer(user):
     # return user.groups.filter(name='Trainer').exists()
     return hasattr(user, 'trainer_profile')
 
-@user_passes_test(is_trainer, login_url='/login')
+# @user_passes_test(is_trainer, login_url='/login')
 def trainerlogin(request): 
    
     if request.method=='POST':
@@ -126,8 +126,9 @@ def dashboard(request):
     user = request.user
     attendance=Attendance.objects.all()
     user_session =request.user.bookings.all()
+    attendance_records = Attendance.objects.filter(user=user)
     user_bookings = Booking.objects.filter(user=user).select_related('session', 'session__trainer__user')
-    return render(request, 'dashboard.html', {"attendance":attendance, "user_session":user_session, 'user_bookings': user_bookings})    
+    return render(request, 'dashboard.html', {"attendance":attendance, "user_session":user_session, 'user_bookings': user_bookings, "attendance_records": attendance_records})    
 
 def gallery(request):
     post=Gallery.objects.all()
@@ -138,6 +139,7 @@ def attendance(request):
     if not request.user.is_authenticated:
         messages.warning(request,"Please login first.")
         return redirect('/login')
+        
     trainer =Trainer.objects.all()
     context={"trainer":trainer}
     if request.method =='POST':
@@ -145,8 +147,9 @@ def attendance(request):
         logout =request.POST.get('logout')
         workout =request.POST.get('workout')
         trainer =request.POST.get('domain')
+        user =request.user
 
-        myquery=Attendance( login=login, logout=logout, selectworkout=workout, trainedby=trainer)
+        myquery=Attendance( user =user,login=login, logout=logout, selectworkout=workout, trainedby=trainer)
         myquery.save()
         messages.success(request,("Your attendace has been updated sucessfully."))
         return redirect('/dashboard')
@@ -181,7 +184,7 @@ def book_session(request, id):
 
 
 #To list all the bookings in the trainer's dashboard
-@login_required(login_url='/login')
+# @login_required(login_url='/login')
 # @user_passes_test(is_trainer, login_url='/login') #Only trainers can access this view
 def trainer_dashboard(request):
     user = request.user
