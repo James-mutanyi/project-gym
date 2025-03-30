@@ -1,146 +1,57 @@
-{%extends "base.html"%} {% block title %} User Dashboard {% endblock title %}
-{%block content %}
-<header
-  id="header"
-  class="header d-flex align-items-center fixed-top bg-black"
-  style="
-    background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
-  "
->
-  <div
-    class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-  >
-    <a href="/" class="logo d-flex align-items-center">
-      <h1 class="sitename">Dashboard</h1>
-    </a>
+{%extends "base.html"%}
+{% block title %}
+  User Dashboard
+{% endblock title %}
+{% block content %}
+<header id="header" class="header d-flex align-items-center fixed-top bg-black" style="background: linear-gradient(to bottom,rgb(28, 23, 32),rgb(11, 47, 83));">
+    <div
+      class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+    >
+      <a href="/" class="logo d-flex align-items-center">
+        <h1 class="sitename">Dashboard</h1>
+      </a>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#profile" class="active">Profile</a></li>
-        <li><a href="#attendance">Atendance</a></li>
-        <li><a href="#classes">Classes</a></li>
-        <li><a href="/gallery">Your Gallery</a></li>
-        <li><a href="#subplan">Subscription Plan</a></li>
-        <form action="{% url 'logout' %}" method="post">
-          {% csrf_token %}
-          <button class="btn btn-primary" type="submit">Log Out</button>
-        </form>
-      </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-    </nav>
-  </div>
-</header>
-<main
-  id="main"
-  style="
-    background: radial-gradient(
-      circle,
-      rgba(63, 94, 251, 1) 0%,
-      rgba(121, 20, 41, 1) 100%
-    );
-  "
->
-  <section
-    id="Profile"
-    class="profile-section pt-5"
-    style="
-      padding: 1rem 0;
-      margin-bottom: 2rem;
-      margin-top: 2rem;
-      background: radial-gradient(
-        circle,
-        rgba(63, 94, 251, 1) 0%,
-        rgba(121, 20, 41, 1) 100%
-      );
-    "
-  >
-    <div class="container">
-      <div
-        class="card shadow-lg border-0 d-flex flex-column flex-md-row align-items-center justify-content-between"
-        style="width: 100%; padding: 0.1rem"
-      >
-        <div
-          class="col-md-4 d-flex align-items-center mb-3 mb-md-0"
-          style="padding: 1rem; gap: 1rem"
-        >
-          <img
-            src="static/assets/img/blog/user.png"
-            class="img-fluid rounded-circle m-2"
-            alt="User Profile Picture"
-            style="width: 50px; height: 50px"
-          />
-          <h5 class="card-title text-muted mb-0">
-            Welcome, <span class="text-primary">{{ user.username }}</span>
-          </h5>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#profile" class="active">Profile</a></li>
+          <li><a href="#attendance">Atendance</a></li>
+          <li><a href="#classes">Classes</a></li>
+          <li><a href="/gallery">Your Gallery</a></li>
+          <li><a href="#subplan">Subscription Plan</a></li>
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+           <button class=" btn btn-primary "type="submit">Log Out</button></a>
+           
+          </form>
+         
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+<main id="main" style="background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(121,20,41,1) 100%);">
+    <section id="Profile" class="profile-section py-5" style="padding: 1rem 0; margin-bottom: 2rem; margin-top: 2rem; background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(121,20,41,1) 100%);">
+      <div class="container">
+      <div class="card shadow-lg border-0" style="max-width: 540px; margin: auto; padding: 1rem;">
+        <div class="row g-0">
+        <div class="col-md-4" style="padding: 1rem;">
+          <img src="static/assets/img/blog/user.png" class="img-fluid rounded-start" alt="User Profile Picture" style="margin: auto; display: block;">
         </div>
-        <div
-          class="col-md-8 d-flex flex-column flex-md-row align-items-center justify-content-evenly"
-          style="padding: 1rem; gap: 1rem"
-        >
-          <div
-            class="col-md-4 d-flex align-items-center mb-3 mb-md-0"
-            style="padding: 1rem; gap: 1rem"
-          >
-            <img
-              src="static/assets/img/email.png"
-              class="img-fluid rounded-circle m-2"
-              alt="User Profile Picture"
-              style="width: 50px; height: 50px"
-            />
-            <h5 class="card-title text-muted mb-0">
-              <span class="text-primary">{{ user.email }}</span>
-            </h5>
+        <div class="col-md-8" style="padding: 1rem;">
+          <div class="card-body">
+          <h5 class="card-title text-muted" style="margin-bottom: 1rem;">Username: <span class="text-primary">{{ user.username }}</span></h5>
+          <h5 class="card-text text-muted" style="margin-bottom: 1rem;">Email: <span class="text-primary">{{ user.email }}</span></h5>
+          <p class="card-text">
+            <a href="{% url 'password_change' %}" class="btn btn-outline-primary btn-sm" style="margin-top: 1rem;">Reset Password</a>
+          </p>
           </div>
-
-          <a
-            href="{% url 'password_change' %}"
-            class="col-md-4 d-flex align-items-center mb-3 mb-md-0"
-            style="
-              padding: 0.1rem;
-              gap: 1rem;
-              background-color: lightgray;
-              text-decoration: none;
-              border-radius: 5px;
-              transition: background 0.3s ease;
-            "
-            onmouseover="this.style.background='linear-gradient(to right,rgb(45, 28, 63),rgb(58, 58, 59))'"
-            onmouseout="this.style.background='lightgray'"
-          >
-            <img
-              src="static/assets/img/password.png"
-              class="img-fluid rounded-circle m-2"
-              alt="Reset Password Icon"
-              style="width: 50px; height: 50px"
-            />
-            <span
-              class="text-center"
-              style="
-                margin-left: 0;
-                margin-top: 0;
-                color: black;
-                font-weight: bold;
-              "
-            >
-              Reset Password
-            </span>
-          </a>
+        </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section
-    id="attendance"
-    class="py-1"
-    style="
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 5rem;
-      background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
-      border-radius: 10px;
-      padding: 2rem;
-    "
-  >
-    <div class="container">
+      </div>
+    </section>
+    <section id="attendance" class="py-1" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 5rem; background: linear-gradient(to bottom,rgb(28, 23, 32),rgb(11, 47, 83));">
+      <div class="container">
       <div class="text-center mb-4">
         <h5
           class="text-white text-3xl p-2 uppercase fw-bold"
@@ -150,56 +61,27 @@
         </h5>
       </div>
       <div class="table-responsive">
-        <table
-          class="table table-bordered table-hover"
-          style="
-            border-collapse: separate;
-            border-spacing: 0 10px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-          "
-        >
-          <thead
-            class="table-primary"
-            style="
-              background: linear-gradient(to right, #6a11cb, #2575fc);
-              color: white;
-              border-radius: 10px;
-            "
-          >
-            <tr>
-              <th style="padding: 1rem; text-align: center">Date</th>
-              <th style="padding: 1rem; text-align: center">Login Time</th>
-              <th style="padding: 1rem; text-align: center">Logout Time</th>
-              <th style="padding: 1rem; text-align: center">Workout</th>
-              <th style="padding: 1rem; text-align: center">Trained By</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for x in attendance %}
-            <tr
-              style="
-                background-color: rgba(255, 255, 255, 0.2);
-                border-radius: 10px;
-                transition: transform 0.2s ease-in-out;
-              "
-              onmouseover="this.style.transform='scale(1.02)'"
-              onmouseout="this.style.transform='scale(1)'"
-            >
-              <td style="padding: 1rem; text-align: center">
-                {{ x.selectdate }}
-              </td>
-              <td style="padding: 1rem; text-align: center">{{ x.login }}</td>
-              <td style="padding: 1rem; text-align: center">{{ x.logout }}</td>
-              <td style="padding: 1rem; text-align: center">
-                {{ x.selectworkout }}
-              </td>
-              <td style="padding: 1rem; text-align: center">
-                {{ x.trainedby }}
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
+        <table class="table table-bordered table-hover">
+        <thead class="table-primary">
+          <tr>
+          <th>Date</th>
+          <th>Login Time</th>
+          <th>Logout Time</th>
+          <th>Workout</th>
+          <th>Trained By</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in attendance_records %}
+          <tr>
+          <td>{{ x.selectdate }}</td>
+          <td>{{ x.login }}</td>
+          <td>{{ x.logout }}</td>
+          <td>{{ x.selectworkout }}</td>
+          <td>{{ x.trainedby }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
         </table>
       </div>
       <div class="text-center mt-3 p-2">
@@ -222,95 +104,45 @@
         </a>
       </div>
     </div>
-  </section>
-  {% for message in messages %}
-  <div
-    class="alert alert-{{message.tags}} alert-dismissible fade show "
-    role="alert"
-  >
-    <strong></strong>{{message}}
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="close"
-    ></button>
-  </div>
+<<<<<<< HEAD
+      
+   
+    <section id="classes" class="py-1" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background: linear-gradient(to bottom,rgb(28, 23, 32),rgb(11, 47, 83));">
+      <h2>Your Booked Sessions</h2>
+  {% if user_bookings %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Session Name</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Trainer</th>
+          <th>Booking Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in user_bookings %}
+          <tr>
+            <td>{{ booking.session.name }}</td>
+            <td>{{ booking.session.starttime }}</td>
+            <td>{{ booking.session.endtime }}</td>
+            <td>{{ booking.session.trainer }}</td>
+            <td>{{ booking.booking_date }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>You have not booked any sessions yet.</p>
+  {% endif %}
 
-  {% endfor %}
-  <section
-    id="classes"
-    class="py-1"
-    style="
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 5rem;
-      background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
-      border-radius: 10px;
-      padding: 2rem;
-    "
-  >
-    <div class="container">
-      <div class="text-center mb-4">
-        <h5
-          class="text-white text-3xl p-2 uppercase fw-bold"
-          style="font-size: 2rem; letter-spacing: 0.1rem"
-        >
-          Here are your classes
-        </h5>
-      </div>
-      <div class="table-responsive">
-        <table
-          class="table table-bordered table-hover"
-          style="
-            border-collapse: separate;
-            border-spacing: 0 10px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-          "
-        >
-          <thead
-            class="table-primary"
-            style="
-              background: linear-gradient(to right, #6a11cb, #2575fc);
-              color: white;
-              border-radius: 10px;
-            "
-          >
-            <tr>
-              <th style="padding: 1rem; text-align: center">Session Name</th>
-              <th style="padding: 1rem; text-align: center">From</th>
-              <th style="padding: 1rem; text-align: center">To</th>
-              <th style="padding: 1rem; text-align: center">Workout</th>
-              <th style="padding: 1rem; text-align: center">Trained By</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for s in user_session %}
-            <tr
-              style="
-                background-color: rgba(255, 255, 255, 0.2);
-                border-radius: 10px;
-                transition: transform 0.2s ease-in-out;
-              "
-              onmouseover="this.style.transform='scale(1.02)'"
-              onmouseout="this.style.transform='scale(1)'"
-            >
-              <td style="padding: 1rem; text-align: center">{{ s.name }}</td>
-              <td style="padding: 1rem; text-align: center">
-                {{ s.starttime }}
-              </td>
-              <td style="padding: 1rem; text-align: center">
-                {{ s.stoptime }}
-              </td>
-              <td style="padding: 1rem; text-align: center">{{ s.workout }}</td>
-              <td style="padding: 1rem; text-align: center">{{ s.trainer }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+
+
+    </section>
+
+=====
+  
+
 </main>
 
 {% endblock %}
