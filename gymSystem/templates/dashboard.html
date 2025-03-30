@@ -42,7 +42,7 @@
 >
   <section
     id="Profile"
-    class="profile-section py-5"
+    class="profile-section pt-5"
     style="
       padding: 1rem 0;
       margin-bottom: 2rem;
@@ -56,40 +56,79 @@
   >
     <div class="container">
       <div
-        class="card shadow-lg border-0"
-        style="max-width: 540px; margin: auto; padding: 1rem"
+        class="card shadow-lg border-0 d-flex flex-column flex-md-row align-items-center justify-content-between"
+        style="width: 100%; padding: 0.1rem"
       >
-        <div class="row g-0">
-          <div class="col-md-4" style="padding: 1rem">
+        <div
+          class="col-md-4 d-flex align-items-center mb-3 mb-md-0"
+          style="padding: 1rem; gap: 1rem"
+        >
+          <img
+            src="static/assets/img/blog/user.png"
+            class="img-fluid rounded-circle m-2"
+            alt="User Profile Picture"
+            style="width: 50px; height: 50px"
+          />
+          <h5 class="card-title text-muted mb-0">
+            Welcome, <span class="text-primary">{{ user.username }}</span>
+          </h5>
+        </div>
+        <div
+          class="col-md-8 d-flex flex-column flex-md-row align-items-center justify-content-evenly"
+          style="padding: 1rem; gap: 1rem"
+        >
+          <div
+            class="col-md-4 d-flex align-items-center mb-3 mb-md-0"
+            style="padding: 1rem; gap: 1rem"
+          >
             <img
-              src="static/assets/img/blog/user.png"
-              class="img-fluid rounded-start"
+              src="static/assets/img/email.png"
+              class="img-fluid rounded-circle m-2"
               alt="User Profile Picture"
-              style="margin: auto; display: block"
+              style="width: 50px; height: 50px"
             />
+            <h5 class="card-title text-muted mb-0">
+              <span class="text-primary">{{ user.email }}</span>
+            </h5>
           </div>
-          <div class="col-md-8" style="padding: 1rem">
-            <div class="card-body">
-              <h5 class="card-title text-muted" style="margin-bottom: 1rem">
-                Username: <span class="text-primary">{{ user.username }}</span>
-              </h5>
-              <h5 class="card-text text-muted" style="margin-bottom: 1rem">
-                Email: <span class="text-primary">{{ user.email }}</span>
-              </h5>
-              <p class="card-text">
-                <a
-                  href="{% url 'password_change' %}"
-                  class="btn btn-outline-primary btn-sm"
-                  style="margin-top: 1rem"
-                  >Reset Password</a
-                >
-              </p>
-            </div>
-          </div>
+
+          <a
+            href="{% url 'password_change' %}"
+            class="col-md-4 d-flex align-items-center mb-3 mb-md-0"
+            style="
+              padding: 0.1rem;
+              gap: 1rem;
+              background-color: lightgray;
+              text-decoration: none;
+              border-radius: 5px;
+              transition: background 0.3s ease;
+            "
+            onmouseover="this.style.background='linear-gradient(to right,rgb(45, 28, 63),rgb(58, 58, 59))'"
+            onmouseout="this.style.background='lightgray'"
+          >
+            <img
+              src="static/assets/img/password.png"
+              class="img-fluid rounded-circle m-2"
+              alt="Reset Password Icon"
+              style="width: 50px; height: 50px"
+            />
+            <span
+              class="text-center"
+              style="
+                margin-left: 0;
+                margin-top: 0;
+                color: black;
+                font-weight: bold;
+              "
+            >
+              Reset Password
+            </span>
+          </a>
         </div>
       </div>
     </div>
   </section>
+
   <section
     id="attendance"
     class="py-1"
@@ -97,38 +136,90 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       margin-bottom: 5rem;
       background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
+      border-radius: 10px;
+      padding: 2rem;
     "
   >
     <div class="container">
       <div class="text-center mb-4">
-        <h5 class="text-white text-3xl p-2 uppercase">Attendance Record</h5>
+        <h5
+          class="text-white text-3xl p-2 uppercase fw-bold"
+          style="font-size: 2rem; letter-spacing: 0.1rem"
+        >
+          Attendance Record
+        </h5>
       </div>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead class="table-primary">
+        <table
+          class="table table-bordered table-hover"
+          style="
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+          "
+        >
+          <thead
+            class="table-primary"
+            style="
+              background: linear-gradient(to right, #6a11cb, #2575fc);
+              color: white;
+              border-radius: 10px;
+            "
+          >
             <tr>
-              <th>Date</th>
-              <th>Login Time</th>
-              <th>Logout Time</th>
-              <th>Workout</th>
-              <th>Trained By</th>
+              <th style="padding: 1rem; text-align: center">Date</th>
+              <th style="padding: 1rem; text-align: center">Login Time</th>
+              <th style="padding: 1rem; text-align: center">Logout Time</th>
+              <th style="padding: 1rem; text-align: center">Workout</th>
+              <th style="padding: 1rem; text-align: center">Trained By</th>
             </tr>
           </thead>
           <tbody>
             {% for x in attendance %}
-            <tr>
-              <td>{{ x.selectdate }}</td>
-              <td>{{ x.login }}</td>
-              <td>{{ x.logout }}</td>
-              <td>{{ x.selectworkout }}</td>
-              <td>{{ x.trainedby }}</td>
+            <tr
+              style="
+                background-color: rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                transition: transform 0.2s ease-in-out;
+              "
+              onmouseover="this.style.transform='scale(1.02)'"
+              onmouseout="this.style.transform='scale(1)'"
+            >
+              <td style="padding: 1rem; text-align: center">
+                {{ x.selectdate }}
+              </td>
+              <td style="padding: 1rem; text-align: center">{{ x.login }}</td>
+              <td style="padding: 1rem; text-align: center">{{ x.logout }}</td>
+              <td style="padding: 1rem; text-align: center">
+                {{ x.selectworkout }}
+              </td>
+              <td style="padding: 1rem; text-align: center">
+                {{ x.trainedby }}
+              </td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
       <div class="text-center mt-3 p-2">
-        <a href="/attendance" class="btn btn-primary">Update Attendance</a>
+        <a
+          href="/attendance"
+          class="btn btn-primary"
+          style="
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            transition: background 0.3s ease;
+          "
+          onmouseover="this.style.background='linear-gradient(to right, #2575fc, #6a11cb)'"
+          onmouseout="this.style.background='linear-gradient(to right, #6a11cb, #2575fc)'"
+        >
+          Update Attendance
+        </a>
       </div>
     </div>
   </section>
@@ -152,32 +243,67 @@
     class="py-1"
     style="
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 5rem;
       background: linear-gradient(to bottom, rgb(28, 23, 32), rgb(11, 47, 83));
+      border-radius: 10px;
+      padding: 2rem;
     "
   >
     <div class="container">
       <div class="text-center mb-4">
-        <h5 class="text-white text-3xl p-2 uppercase">Here are your classes</h5>
+        <h5
+          class="text-white text-3xl p-2 uppercase fw-bold"
+          style="font-size: 2rem; letter-spacing: 0.1rem"
+        >
+          Here are your classes
+        </h5>
       </div>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead class="table-primary">
+        <table
+          class="table table-bordered table-hover"
+          style="
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+          "
+        >
+          <thead
+            class="table-primary"
+            style="
+              background: linear-gradient(to right, #6a11cb, #2575fc);
+              color: white;
+              border-radius: 10px;
+            "
+          >
             <tr>
-              <th>Session Name</th>
-              <th>From</th>
-              <th>To</th>
-              <th>Workout</th>
-              <th>Trained By</th>
+              <th style="padding: 1rem; text-align: center">Session Name</th>
+              <th style="padding: 1rem; text-align: center">From</th>
+              <th style="padding: 1rem; text-align: center">To</th>
+              <th style="padding: 1rem; text-align: center">Workout</th>
+              <th style="padding: 1rem; text-align: center">Trained By</th>
             </tr>
           </thead>
           <tbody>
             {% for s in user_session %}
-            <tr>
-              <td>{{ s.name }}</td>
-              <td>{{ s.starttime }}</td>
-              <td>{{ s.stoptime }}</td>
-              <td>{{ s.workout }}</td>
-              <td>{{ s.trainer }}</td>
+            <tr
+              style="
+                background-color: rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                transition: transform 0.2s ease-in-out;
+              "
+              onmouseover="this.style.transform='scale(1.02)'"
+              onmouseout="this.style.transform='scale(1)'"
+            >
+              <td style="padding: 1rem; text-align: center">{{ s.name }}</td>
+              <td style="padding: 1rem; text-align: center">
+                {{ s.starttime }}
+              </td>
+              <td style="padding: 1rem; text-align: center">
+                {{ s.stoptime }}
+              </td>
+              <td style="padding: 1rem; text-align: center">{{ s.workout }}</td>
+              <td style="padding: 1rem; text-align: center">{{ s.trainer }}</td>
             </tr>
             {% endfor %}
           </tbody>
